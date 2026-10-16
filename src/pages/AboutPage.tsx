@@ -28,6 +28,7 @@ import {
 import { SectionHeader } from '../components/SectionHeader';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import aboutHeroBg from '../assets/images/about-hero-bg.jpg';
+import aboutOverviewImage from '../assets/images/services-intro-bridge.jpg';
 
 interface AboutPageProps {
   onNavigate: (page: PageId) => void;
@@ -123,6 +124,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8" aria-label="HBC Construction bridge project">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-xl">
+          <img
+            src={aboutOverviewImage}
+            alt="HBC Construction team and concrete pump truck working on a bridge project"
+            width={1360}
+            height={768}
+            loading="lazy"
+            className="aspect-[4/3] w-full object-cover object-center sm:aspect-[16/8] lg:aspect-[16/7]"
+          />
         </div>
       </section>
 

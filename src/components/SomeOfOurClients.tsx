@@ -131,6 +131,7 @@ export const SomeOfOurClients: React.FC<SomeOfOurClientsProps> = ({
             eyebrow="Trusted Partnerships"
             title="Some of Our Clients"
             description="HBC Construction takes pride in delivering institutional-grade civil, structural, and infrastructure contracts for South Africa's most prominent public entities, metropolitan municipalities, development agencies, and commercial leaders."
+            descriptionClassName="text-white"
             align="center"
             dark
           />

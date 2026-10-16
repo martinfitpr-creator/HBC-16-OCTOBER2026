@@ -4,6 +4,7 @@ interface SectionHeaderProps {
   eyebrow?: string;
   title: string;
   description?: string;
+  descriptionClassName?: string;
   align?: 'left' | 'center';
   dark?: boolean;
   eyebrowStyle?: 'dot' | 'dash';
@@ -13,6 +14,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   eyebrow,
   title,
   description,
+  descriptionClassName,
   align = 'left',
   dark = false,
   eyebrowStyle = 'dot'
@@ -42,7 +44,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {description && (
         <p className={`text-base sm:text-lg leading-[1.7] font-normal ${
-          dark ? 'text-white' : 'text-neutral-600'
+          descriptionClassName ?? (dark ? 'text-neutral-400' : 'text-neutral-600')
         }`}>
           {description}
         </p>
