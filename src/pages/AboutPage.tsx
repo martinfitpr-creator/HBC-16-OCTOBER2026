@@ -29,6 +29,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import aboutHeroBg from '../assets/images/about-hero-bg.jpg';
 import aboutOverviewImage from '../assets/images/services-intro-bridge.jpg';
+import missionPillarsBg from '../assets/images/mission-pillars-industrial.jpg';
 
 interface AboutPageProps {
   onNavigate: (page: PageId) => void;
@@ -142,7 +143,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
 
       {/* Vision & Mission Sections */}
       <section className="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Vision Callout */}
             <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-950 text-white border border-neutral-800 relative overflow-hidden flex flex-col justify-between">
@@ -178,30 +179,42 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Mission Strategic Focus Areas */}
-          <div className="space-y-6 pt-4">
-            <SectionHeader
-              eyebrow="Mission Pillars"
-              title="Delivering Impact Across Four Strategic Focus Areas"
-              description="Our mission translates our broader societal commitment into operational execution across every site, tender, and commercial engagement."
-            />
+      {/* Mission Strategic Focus Areas */}
+      <section className="relative isolate overflow-hidden py-16 sm:py-20">
+        <img
+          src={missionPillarsBg}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-neutral-950/75" />
+        <div className="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Mission Pillars"
+            title="Delivering Impact Across Four Strategic Focus Areas"
+            description="Our mission translates our broader societal commitment into operational execution across every site, tender, and commercial engagement."
+            descriptionClassName="text-white/90"
+            dark
+          />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {companyMission.map((item, idx) => (
-                <div key={idx} className="p-6 rounded-xl bg-white border border-neutral-200 shadow-xs hover:shadow-md transition space-y-3">
-                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 font-bold text-xs flex items-center justify-center">
-                    0{idx + 1}
-                  </div>
-                  <h4 className="font-extrabold text-neutral-900 text-base">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                    {item.description}
-                  </p>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {companyMission.map((item, idx) => (
+              <div key={idx} className="space-y-3 rounded-xl border border-white/25 bg-neutral-950/55 p-6 text-white shadow-xs backdrop-blur-sm transition hover:bg-neutral-950/70">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 font-bold text-xs text-white">
+                  0{idx + 1}
                 </div>
-              ))}
-            </div>
+                <h4 className="text-base font-extrabold text-white">
+                  {item.title}
+                </h4>
+                <p className="text-xs leading-relaxed text-white/90 sm:text-sm">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
