@@ -9,6 +9,7 @@ import dbsaLogo from '../assets/clients/dbsa.png';
 import udTrucksLogo from '../assets/clients/ud-trucks.svg';
 import jraLogo from '../assets/clients/jra.jpg';
 import clientsIntroBg from '../assets/images/projects-intro-ud-trucks.jpg';
+import './SomeOfOurClients.css';
 
 export interface ClientItem {
   id: string;
@@ -146,6 +147,30 @@ export const SomeOfOurClients: React.FC<SomeOfOurClientsProps> = ({
       </div>
 
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:space-y-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+        <div
+          className="clients-marquee"
+          role="region"
+          aria-label="Client logos moving from right to left; hover or focus to pause"
+          tabIndex={0}
+        >
+          <div className="clients-marquee__track">
+            {[false, true].map((isDuplicate) => (
+              <ul
+                key={isDuplicate ? 'duplicate' : 'clients'}
+                className="clients-marquee__group"
+                aria-hidden={isDuplicate || undefined}
+              >
+                {clientsList.map((client) => (
+                  <li key={client.id} className="clients-marquee__item">
+                    <img src={client.logoUrl} alt="" loading="lazy" decoding="async" />
+                    <span>{client.shortName}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+
         {/* Client Logos Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {clientsList.map((client) => {
