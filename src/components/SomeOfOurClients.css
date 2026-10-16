@@ -15,11 +15,6 @@
   animation: clients-marquee-scroll 48s linear infinite;
 }
 
-.clients-marquee:hover .clients-marquee__track,
-.clients-marquee:focus .clients-marquee__track {
-  animation-play-state: paused;
-}
-
 .clients-marquee__group {
   display: flex;
   flex: none;
@@ -70,15 +65,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .clients-marquee {
-    overflow-x: auto;
-  }
-
   .clients-marquee__track {
-    animation: none;
-  }
-
-  .clients-marquee__group[aria-hidden="true"] {
-    display: none;
+    animation-duration: 48s !important;
+    animation-iteration-count: infinite !important;
   }
 }
