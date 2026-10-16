@@ -16,6 +16,7 @@ import { GeographicFootprint } from '../components/GeographicFootprint';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import { projectsData } from '../data/projectsData';
 import servicesIntroBg from '../assets/images/services-intro-bridge.jpg';
+import projectsIntroBg from '../assets/images/projects-intro-ud-trucks.jpg';
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
@@ -298,24 +299,40 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      <section className="border-b border-neutral-200 bg-white py-14 sm:py-20" aria-label="Projects and Case Studies">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div className="mb-8 flex flex-col items-center gap-6 text-center sm:mb-12" {...scrollRevealProps}>
-            <SectionHeader
-              eyebrow="OUR WORK"
-              title="Projects and Case Studies"
-              description="Explore selected infrastructure, construction, and public-sector projects delivered by HBC Construction."
-              align="center"
-            />
+      <section className="border-b border-neutral-200" aria-label="Projects and Case Studies">
+        <div className="relative isolate overflow-hidden bg-neutral-950 px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8">
+          <img
+            src={projectsIntroBg}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-neutral-950/60" aria-hidden="true" />
+          <motion.div className="relative mx-auto mb-8 flex max-w-3xl flex-col items-center gap-6 text-center sm:mb-12" {...scrollRevealProps}>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-400 sm:text-sm">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-orange-500" />
+                <span>Our Work</span>
+              </div>
+              <h2 className="text-[clamp(2.375rem,3.2vw,2.875rem)] font-bold leading-tight tracking-tight text-white">
+                Projects and Case Studies
+              </h2>
+              <p className="text-base font-normal leading-[1.7] text-white sm:text-lg">
+                Explore selected infrastructure, construction, and public-sector projects delivered by HBC Construction.
+              </p>
+            </div>
             <button
               onClick={() => onNavigate('projects')}
-              className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-50 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-neutral-900 shadow-xs transition hover:border-orange-500 hover:shadow"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/70 bg-neutral-950/35 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-xs backdrop-blur-sm transition hover:border-white hover:bg-neutral-950/60"
             >
               <span>View All Projects</span>
-              <ArrowRight className="h-4 w-4 text-orange-600" />
+              <ArrowRight className="h-4 w-4 text-orange-400" />
             </button>
           </motion.div>
+        </div>
 
+        <div className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <motion.div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" {...scrollRevealProps}>
             {projectsData.slice(0, 6).map((project) => (
               <ProjectCard
