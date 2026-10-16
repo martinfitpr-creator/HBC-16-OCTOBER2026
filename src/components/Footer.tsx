@@ -25,8 +25,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestQuote }) =>
       {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Col 1: Brand Profile (4 columns) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Col 1: Brand Profile (5 columns) */}
+          <div className="lg:col-span-5 space-y-6">
             <button 
               onClick={() => handleNav('home')} 
               className="text-left focus:outline-none block cursor-pointer group"
@@ -56,12 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestQuote }) =>
           </div>
 
           {/* Col 2: Our Services */}
-          <div className="lg:col-span-5 space-y-3">
+          <div className="lg:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-[#EB5A24] pl-2.5">
               Our Services
             </h4>
 
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 pt-1 text-xs">
+            <ul className="grid grid-cols-1 gap-y-2.5 pt-1 text-xs">
               {[
                 'Electrical Engineering',
                 'General Building',

@@ -15,8 +15,11 @@ import { SectionHeader } from '../components/SectionHeader';
 import { GeographicFootprint } from '../components/GeographicFootprint';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import { projectsData } from '../data/projectsData';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 import servicesIntroBg from '../assets/images/services-intro-bridge.jpg';
 import projectsIntroBg from '../assets/images/projects-intro-warehouse.jpg';
+
+const projectProvinceCount = new Set(projectsData.map((project) => project.province)).size;
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
@@ -173,6 +176,17 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       </section>
 
+      <section className="border-b border-neutral-200 bg-neutral-50 px-4 py-8 sm:px-6 sm:py-10 lg:px-8" aria-label="HBC Construction at a glance">
+        <motion.div
+          className="mx-auto grid max-w-7xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-5"
+          {...scrollRevealProps}
+        >
+          <AnimatedCounter value={30} suffix="+" label="Years of Construction Experience" />
+          <AnimatedCounter value={projectsData.length} label="Projects in Our Portfolio" />
+          <AnimatedCounter value={projectProvinceCount} label="Provinces Represented in Our Portfolio" />
+        </motion.div>
+      </section>
+
       {/* ─────────────────────────────────────────────────────────────
           2. COMPANY INTRODUCTION SECTION
           "Building South Africa's Infrastructure With Purpose"
@@ -189,17 +203,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-2">
-              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
-                <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
-                  <span>30+ Years Experience</span>
-                </div>
-                <p className="text-xs text-neutral-600 leading-relaxed">
-                  Decades of on-site delivery handling complex geotechnical, structural, and civil site conditions.
-                </p>
-              </div>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
               <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
                 <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
                   <span className="w-2 h-2 rounded-full bg-orange-600"></span>
