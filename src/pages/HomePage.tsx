@@ -3,7 +3,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { 
   ArrowRight, 
   ChevronDown, 
-  ShieldCheck, 
   Phone,
 } from 'lucide-react';
 import heroConstructionImg from '../assets/images/hero-highway-bridge.jpg';
@@ -68,7 +67,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Hero Content Container */}
-        <div className="home-hero__content relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
+        <div className="home-hero__content relative z-10 mx-auto flex w-full max-w-7xl flex-1 translate-y-6 flex-col justify-center px-6 py-12 sm:translate-y-8 sm:py-16 lg:translate-y-12 lg:px-10 lg:py-20">
           <div className="home-hero__copy mx-auto flex max-w-[850px] flex-col items-center text-center">
             {/* Eyebrow Header with Orange Line */}
             <div className="mb-5 flex items-center justify-center gap-4">
@@ -163,33 +162,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* Hero Bottom Row: Unified, Perfectly Leveled Credibility & Stats Bar */}
-        <div className="home-hero__bottom relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-2 sm:pb-8 lg:mt-16 lg:px-10">
-          <div className="home-hero__stats grid w-full grid-cols-2 items-center gap-x-4 gap-y-3 rounded-2xl border border-neutral-800/90 bg-[#101114]/95 px-4 py-4 shadow-2xl backdrop-blur-md sm:px-6 sm:py-5 min-[1000px]:grid-cols-[minmax(190px,1.1fr)_repeat(4,minmax(0,1fr))] min-[1000px]:gap-0 min-[1000px]:px-8 min-[1000px]:py-5 min-[1000px]:pr-24">
-            <div className="col-span-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-neutral-200 min-[1000px]:col-span-1 min-[1000px]:justify-start">
-              <ShieldCheck className="h-4 w-4 shrink-0 text-orange-500" />
-              <span className="whitespace-nowrap"><strong className="text-white">100%</strong> Black-Owned</span>
-            </div>
-            {[
-              { value: '20+', label: 'Years Experience' },
-              { value: '50+', label: 'Projects Completed' },
-              { value: '8GB / 8CE', label: 'CIDB Grades' },
-              { value: 'Level 1', label: 'B-BBEE' }
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="border-t border-neutral-800 pt-3 text-left min-[1000px]:border-l min-[1000px]:border-t-0 min-[1000px]:py-0 min-[1000px]:pl-5"
-              >
-                <div className="whitespace-nowrap text-xl font-bold leading-none tracking-tight text-amber-400 sm:text-2xl">
-                  {stat.value}
-                </div>
-                <div className="mt-1 whitespace-nowrap text-[10px] font-medium text-neutral-400 sm:text-xs">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
