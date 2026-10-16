@@ -128,19 +128,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
         </div>
       </section>
 
-      <section className="bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8" aria-label="HBC Construction bridge project">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-xl">
-          <img
-            src={aboutOverviewImage}
-            alt="HBC Construction team and concrete pump truck working on a bridge project"
-            width={1360}
-            height={768}
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover object-center sm:aspect-[16/8] lg:aspect-[16/7]"
-          />
-        </div>
-      </section>
-
       {/* Vision & Mission Sections */}
       <section className="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,17 +150,25 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
             </div>
 
             {/* Mission Callout */}
-            <div className="p-8 sm:p-10 rounded-2xl bg-white border border-neutral-200 shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div className="p-8 sm:p-10 rounded-2xl bg-neutral-950 text-white border border-neutral-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
+              <img
+                src={aboutOverviewImage}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-neutral-950/75" />
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-600">
+                <div className="relative inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-400">
                   <Compass className="w-4 h-4" />
                   <span>Our Mission</span>
                 </div>
-                <blockquote className="text-base sm:text-lg font-medium tracking-normal text-neutral-800 leading-relaxed">
+                <blockquote className="relative text-base sm:text-lg font-medium tracking-normal text-white leading-relaxed">
                   "{companyMissionStatement}"
                 </blockquote>
               </div>
-              <div className="pt-6 mt-6 border-t border-neutral-100 flex items-center gap-2 text-xs font-semibold text-neutral-500">
+              <div className="relative pt-6 mt-6 border-t border-white/20 flex items-center gap-2 text-xs font-semibold text-white/80">
                 <div className="w-2 h-2 rounded-full bg-orange-600" />
                 <span>HBC Construction (Pty) Ltd Mandate</span>
               </div>
