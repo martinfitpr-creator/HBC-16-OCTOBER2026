@@ -146,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 1. Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                 currentPage === 'home' 
                   ? 'text-orange-600 font-bold' 
                   : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -161,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 2. About Us */}
             <button
               onClick={() => handleNavClick('about')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                 currentPage === 'about' 
                   ? 'text-orange-600 font-bold' 
                   : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -181,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <button
                 onClick={() => handleNavClick('services')}
-                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                   isServicesActive || servicesDropdownOpen
                     ? 'text-orange-600 font-bold' 
                     : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -229,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 4. Projects */}
             <button
               onClick={() => handleNavClick('projects')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                 currentPage === 'projects' 
                   ? 'text-orange-600 font-bold' 
                   : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -249,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <button
                 onClick={() => handleNavClick('capabilities')}
-                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                   isCompanyActive || companyDropdownOpen
                     ? 'text-orange-600 font-bold' 
                     : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -306,7 +306,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 6. Contact */}
             <button
               onClick={() => handleNavClick('contact')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium transition-colors duration-200 rounded-md ${
+              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
                 currentPage === 'contact' 
                   ? 'text-orange-600 font-bold' 
                   : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
@@ -377,7 +377,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* 1. Home */}
               <button
                 onClick={() => handleNavClick('home')}
-                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-semibold transition ${
+                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
                   currentPage === 'home' 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
@@ -390,7 +390,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* 2. About Us */}
               <button
                 onClick={() => handleNavClick('about')}
-                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-semibold transition ${
+                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
                   currentPage === 'about' 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
@@ -402,7 +402,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* 3. Services Dropdown / Accordion */}
               <div className="rounded-lg overflow-hidden">
-                <div className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold transition ${
+                <div className={`flex items-center justify-between w-full px-4 py-3 text-sm font-bold transition ${
                   isServicesActive 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
@@ -455,7 +455,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* 4. Projects */}
               <button
                 onClick={() => handleNavClick('projects')}
-                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-semibold transition ${
+                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
                   currentPage === 'projects' 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
@@ -467,7 +467,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* 5. Company Dropdown / Accordion */}
               <div className="rounded-lg overflow-hidden">
-                <div className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold transition ${
+                <div className={`flex items-center justify-between w-full px-4 py-3 text-sm font-bold transition ${
                   isCompanyActive 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
@@ -523,7 +523,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* 6. Contact */}
               <button
                 onClick={() => handleNavClick('contact')}
-                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-semibold transition ${
+                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
                   currentPage === 'contact' 
                     ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600' 
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
