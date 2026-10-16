@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-manrope: 'Manrope', sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
   --color-hbc-red: #C41E0A;
   --color-hbc-red-dark: #8F1405;
   --color-hbc-orange: #F28C1E;
@@ -31,7 +31,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   /* Prevent iOS zoom on inputs */

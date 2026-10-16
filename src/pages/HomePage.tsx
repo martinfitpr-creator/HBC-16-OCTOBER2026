@@ -92,7 +92,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               >
                 <h1
                   className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[1100px] lg:text-[clamp(5rem,6vw,6rem)]"
-                  style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}
                 >
                   Building Infrastructure.<br />
                   <span className="text-orange-400">Creating Opportunity.</span>
@@ -116,7 +116,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 >
                   <h1
                     className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[1100px] lg:text-[clamp(5rem,6vw,6rem)]"
-                    style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}
                   >
                     {showAlternateHeroCopy ? (
                       <>
