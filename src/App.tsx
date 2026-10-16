@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { PageId, ProjectItem, ServiceItem } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { QuoteModal } from './components/QuoteModal';
-import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
-import { SearchModal } from './components/SearchModal';
 import { ScrollProgress } from './components/ScrollProgress';
 
-// Pages
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { CapabilitiesPage } from './pages/CapabilitiesPage';
-import { QualitySafetyPage } from './pages/QualitySafetyPage';
-import { SocialResponsibilityPage } from './pages/SocialResponsibilityPage';
-import { ContactPage } from './pages/ContactPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+
+const AboutPage = lazy(() => import('./pages/AboutPage').then(({ AboutPage }) => ({ default: AboutPage })));
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then(({ ServicesPage }) => ({ default: ServicesPage })));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(({ ProjectsPage }) => ({ default: ProjectsPage })));
+const CapabilitiesPage = lazy(() => import('./pages/CapabilitiesPage').then(({ CapabilitiesPage }) => ({ default: CapabilitiesPage })));
+const QualitySafetyPage = lazy(() => import('./pages/QualitySafetyPage').then(({ QualitySafetyPage }) => ({ default: QualitySafetyPage })));
+const SocialResponsibilityPage = lazy(() => import('./pages/SocialResponsibilityPage').then(({ SocialResponsibilityPage }) => ({ default: SocialResponsibilityPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(({ ContactPage }) => ({ default: ContactPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(({ NotFoundPage }) => ({ default: NotFoundPage })));
+const QuoteModal = lazy(() => import('./components/QuoteModal').then(({ QuoteModal }) => ({ default: QuoteModal })));
+const ProjectDetailModal = lazy(() => import('./components/ProjectDetailModal').then(({ ProjectDetailModal }) => ({ default: ProjectDetailModal })));
+const SearchModal = lazy(() => import('./components/SearchModal').then(({ SearchModal }) => ({ default: SearchModal })));
 
 const validPageIds: PageId[] = [
   'home',
@@ -123,69 +123,71 @@ export default function App() {
             transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="flex-1 w-full flex flex-col"
           >
-            {currentPage === 'home' && (
-              <HomePage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-                onSelectProject={handleSelectProject}
-                onSelectService={handleSelectService}
-              />
-            )}
+            <Suspense fallback={<div className="min-h-[50vh] flex-1" aria-hidden="true" />}>
+              {currentPage === 'home' && (
+                <HomePage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                  onSelectProject={handleSelectProject}
+                  onSelectService={handleSelectService}
+                />
+              )}
 
-            {currentPage === 'about' && (
-              <AboutPage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'about' && (
+                <AboutPage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'services' && (
-              <ServicesPage
-                onNavigate={navigateTo}
-                onRequestQuoteWithService={(svc) => handleOpenQuote(svc)}
-                selectedService={selectedService}
-              />
-            )}
+              {currentPage === 'services' && (
+                <ServicesPage
+                  onNavigate={navigateTo}
+                  onRequestQuoteWithService={(svc) => handleOpenQuote(svc)}
+                  selectedService={selectedService}
+                />
+              )}
 
-            {currentPage === 'projects' && (
-              <ProjectsPage
-                onNavigate={navigateTo}
-                onSelectProject={handleSelectProject}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'projects' && (
+                <ProjectsPage
+                  onNavigate={navigateTo}
+                  onSelectProject={handleSelectProject}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'capabilities' && (
-              <CapabilitiesPage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'capabilities' && (
+                <CapabilitiesPage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'quality-safety' && (
-              <QualitySafetyPage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'quality-safety' && (
+                <QualitySafetyPage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'social-responsibility' && (
-              <SocialResponsibilityPage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'social-responsibility' && (
+                <SocialResponsibilityPage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'contact' && (
-              <ContactPage
-                onNavigate={navigateTo}
-                onRequestQuote={() => handleOpenQuote()}
-              />
-            )}
+              {currentPage === 'contact' && (
+                <ContactPage
+                  onNavigate={navigateTo}
+                  onRequestQuote={() => handleOpenQuote()}
+                />
+              )}
 
-            {currentPage === 'not-found' && (
-              <NotFoundPage onNavigate={navigateTo} />
-            )}
+              {currentPage === 'not-found' && (
+                <NotFoundPage onNavigate={navigateTo} />
+              )}
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -197,30 +199,42 @@ export default function App() {
       />
 
       {/* Interactive Quotation / Tender Modal */}
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        initialService={quoteServiceInitial}
-      />
+      {isQuoteModalOpen && (
+        <Suspense fallback={null}>
+          <QuoteModal
+            isOpen={isQuoteModalOpen}
+            onClose={() => setIsQuoteModalOpen(false)}
+            initialService={quoteServiceInitial}
+          />
+        </Suspense>
+      )}
 
       {/* Project Detail Deep Dive Modal */}
-      <ProjectDetailModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onRequestQuote={(projectName) => {
-          setSelectedProject(null);
-          handleOpenQuote(`Enquiry regarding project: ${projectName}`);
-        }}
-      />
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectDetailModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+            onRequestQuote={(projectName) => {
+              setSelectedProject(null);
+              handleOpenQuote(`Enquiry regarding project: ${projectName}`);
+            }}
+          />
+        </Suspense>
+      )}
 
       {/* Website Live Search Modal */}
-      <SearchModal
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        onNavigate={navigateTo}
-        onSelectService={handleSelectService}
-        onSelectProject={handleSelectProject}
-      />
+      {isSearchOpen && (
+        <Suspense fallback={null}>
+          <SearchModal
+            isOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+            onNavigate={navigateTo}
+            onSelectService={handleSelectService}
+            onSelectProject={handleSelectProject}
+          />
+        </Suspense>
+      )}
 
       {/* Floating WhatsApp Green Widget */}
       <WhatsAppWidget phoneNumber="082 853 2960" companyName="HBC Construction (Pty) Ltd" />
