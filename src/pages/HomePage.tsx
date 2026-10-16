@@ -261,7 +261,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="absolute inset-0 -z-10 bg-neutral-950/65" aria-hidden="true" />
           <motion.div className="relative mx-auto mb-8 flex max-w-3xl flex-col items-center gap-6 text-center sm:mb-12" {...scrollRevealProps}>
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white sm:text-sm">
+              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-400 sm:text-sm">
                 <span className="h-[2.5px] w-5 shrink-0 rounded-full bg-orange-500 sm:w-6" />
                 <span>Our Services</span>
               </div>
