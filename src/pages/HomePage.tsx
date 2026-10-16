@@ -15,6 +15,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import { GeographicFootprint } from '../components/GeographicFootprint';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import { projectsData } from '../data/projectsData';
+import servicesIntroBg from '../assets/images/services-intro-bridge.jpg';
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
@@ -248,26 +249,41 @@ export const HomePage: React.FC<HomePageProps> = ({
           4. SERVICES SECTION
           8 Core Service cards with hover transform and line icons
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 bg-[#F8F9FA] border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="mb-8 sm:mb-12 flex flex-col items-center gap-6 text-center" {...scrollRevealProps}>
-            <SectionHeader
-              eyebrow="OUR SERVICES"
-              eyebrowStyle="dash"
-              title="End-to-End Construction & Engineering"
-              description="From heavy earthworks and arterial bridge upgrades to high-security public buildings, our 8 core service divisions deliver high-quality, reliable and sustainable solutions across South Africa."
-              align="center"
-            />
+      <section className="border-b border-neutral-200">
+        <div className="relative isolate overflow-hidden bg-neutral-950 px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <img
+            src={servicesIntroBg}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-neutral-950/65" aria-hidden="true" />
+          <motion.div className="relative mx-auto mb-8 flex max-w-3xl flex-col items-center gap-6 text-center sm:mb-12" {...scrollRevealProps}>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white sm:text-sm">
+                <span className="h-[2.5px] w-5 shrink-0 rounded-full bg-orange-500 sm:w-6" />
+                <span>Our Services</span>
+              </div>
+              <h2 className="text-[clamp(2.375rem,3.2vw,2.875rem)] font-bold leading-tight tracking-tight text-white">
+                End-to-End Construction &amp; Engineering
+              </h2>
+              <p className="text-base font-normal leading-[1.7] text-white sm:text-lg">
+                From heavy earthworks and arterial bridge upgrades to high-security public buildings, our 8 core service divisions deliver high-quality, reliable and sustainable solutions across South Africa.
+              </p>
+            </div>
             <button
               onClick={() => onNavigate('services')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-300 hover:border-orange-500 text-neutral-900 font-bold text-xs uppercase tracking-wider rounded-lg shadow-xs hover:shadow transition flex-shrink-0"
+              className="inline-flex flex-shrink-0 items-center gap-2 rounded-lg border border-white/70 bg-neutral-950/35 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-xs backdrop-blur-sm transition hover:border-white hover:bg-neutral-950/60"
             >
               <span>Explore All Capabilities</span>
-              <ArrowRight className="w-4 h-4 text-orange-600" />
+              <ArrowRight className="h-4 w-4 text-orange-400" />
             </button>
           </motion.div>
+        </div>
 
-          <motion.div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6" {...scrollRevealProps}>
+        <div className="bg-[#F8F9FA] px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <motion.div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6" {...scrollRevealProps}>
             {servicesData.map((service) => (
               <ServiceCard
                 key={service.id}
