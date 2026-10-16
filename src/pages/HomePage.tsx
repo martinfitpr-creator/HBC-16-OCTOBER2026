@@ -143,24 +143,30 @@ export const HomePage: React.FC<HomePageProps> = ({
               </AnimatePresence>
             </div>
 
-            {/* Premium CTAs with Responsive Mobile Stacking */}
-            <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:max-w-[560px] sm:flex-row sm:items-center">
-              <button
-                onClick={() => onNavigate('projects')}
-                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
-                className="inline-flex h-12 min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange-600 px-5 text-base text-white shadow-lg transition-colors duration-200 hover:bg-orange-500 group active:scale-[0.98] cursor-pointer sm:w-1/2 sm:px-4"
+            <div className="mt-10 flex w-full max-w-[560px] flex-col items-stretch gap-3">
+              <a
+                href="tel:+27113144737"
+                className="inline-flex h-12 min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/70 bg-[#0A0F14]/35 px-5 text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:border-white hover:bg-[#0A0F14]/60 active:scale-[0.98]"
               >
-                <span>Explore Our Projects</span>
+                <Phone className="h-4 w-4" />
+                <span>Call HBC Construction</span>
+              </a>
+
+              <button
+                onClick={onRequestQuote}
+                className="inline-flex h-12 min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange-600 px-5 text-base font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-orange-500 group active:scale-[0.98] cursor-pointer"
+              >
+                <span>Request a Quote</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
 
-              <button
-                onClick={() => onNavigate('contact')}
-                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
-                className="inline-flex h-12 min-h-12 w-full items-center justify-center rounded-lg border border-white/70 bg-[#0A0F14]/35 px-5 text-base text-white backdrop-blur-sm transition-colors duration-200 hover:border-white hover:bg-[#0A0F14]/60 active:scale-[0.98] cursor-pointer sm:w-1/2 sm:px-4"
-              >
-                <span>Talk to HBC</span>
-              </button>
+              <div className="mx-auto mt-1 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-white/40 bg-[#0A0F14]/30 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm">
+                <span>CIDB Grade 9GB</span>
+                <span aria-hidden="true">•</span>
+                <span>9CE</span>
+                <span aria-hidden="true">•</span>
+                <span>Level 1 B-BBEE</span>
+              </div>
             </div>
           </div>
         </div>
