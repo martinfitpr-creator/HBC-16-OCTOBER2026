@@ -3,7 +3,6 @@ import {
   Users, 
   HeartHandshake, 
   GraduationCap, 
-  Sparkles, 
   TrendingUp, 
   CheckCircle2, 
   ArrowRight,
@@ -72,7 +71,7 @@ export const SocialResponsibilityPage: React.FC<SocialResponsibilityPageProps> =
               </div>
 
               <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-orange-900 text-xs sm:text-sm font-medium flex items-start gap-3">
-                <Sparkles className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                 <p>
                   <strong>Empowerment Through Responsibility:</strong> Rather than relegating youth to menial site clean-up, HBC specifically allocates measurable, supervised technical project responsibility to young men and women on our sites, mentoring the next generation of civil engineering professionals.
                 </p>

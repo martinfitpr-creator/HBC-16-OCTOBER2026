@@ -10,7 +10,6 @@ import {
   MapPin, 
   ShieldCheck, 
   CornerDownLeft, 
-  Sparkles,
   PhoneCall,
   Briefcase
 } from 'lucide-react';
