@@ -30,6 +30,7 @@ import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import aboutHeroBg from '../assets/images/about-hero-bg.jpg';
 import aboutOverviewImage from '../assets/images/services-intro-bridge.jpg';
 import missionPillarsBg from '../assets/images/mission-pillars-industrial.jpg';
+import missionCardBg from '../assets/images/mission-card-crane-sunset.jpg';
 
 interface AboutPageProps {
   onNavigate: (page: PageId) => void;
@@ -152,7 +153,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
             {/* Mission Callout */}
             <div className="p-8 sm:p-10 rounded-2xl bg-neutral-950 text-white border border-neutral-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
               <img
-                src={aboutOverviewImage}
+                src={missionCardBg}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
