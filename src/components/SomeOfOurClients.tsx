@@ -147,7 +147,7 @@ export const SomeOfOurClients: React.FC<SomeOfOurClientsProps> = ({
 
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:space-y-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         {/* Client Logos Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {clientsList.map((client) => {
             const isSelected = selectedClient?.id === client.id;
             return (

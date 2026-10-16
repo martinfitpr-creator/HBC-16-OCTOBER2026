@@ -55,7 +55,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   return (
     <div
       ref={counterRef}
-      className="rounded-xl border border-neutral-200 bg-white px-4 py-5 text-center shadow-sm sm:px-6 sm:py-6"
+      className="rounded-xl border-2 border-neutral-300 bg-white px-4 py-5 text-center shadow-[0_4px_12px_rgba(0,0,0,0.18)] sm:px-6 sm:py-6"
       role="group"
       aria-label={`${value}${suffix} ${label}`}
     >

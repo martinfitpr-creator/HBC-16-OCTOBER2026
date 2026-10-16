@@ -178,12 +178,13 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <section className="border-b border-neutral-200 bg-neutral-50 px-4 py-8 sm:px-6 sm:py-10 lg:px-8" aria-label="HBC Construction at a glance">
         <motion.div
-          className="mx-auto grid max-w-7xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-5"
+          className="mx-auto grid max-w-7xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
           {...scrollRevealProps}
         >
           <AnimatedCounter value={30} suffix="+" label="Years of Construction Experience" />
-          <AnimatedCounter value={projectsData.length} label="Projects in Our Portfolio" />
+          <AnimatedCounter value={50} suffix="+" label="Projects in Our Portfolio" />
           <AnimatedCounter value={projectProvinceCount} label="Provinces Represented in Our Portfolio" />
+          <AnimatedCounter value={100} suffix="%" label="Black-Owned South African Enterprise" />
         </motion.div>
       </section>
 

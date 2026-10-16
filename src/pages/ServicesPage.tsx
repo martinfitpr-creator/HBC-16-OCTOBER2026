@@ -18,6 +18,22 @@ import { SectionHeader } from '../components/SectionHeader';
 import servicesHeroBg from '../assets/images/services-hero-bg-optimized.jpg';
 import servicesCalloutBg from '../assets/images/services-cta-roofing.jpg';
 
+const overviewDivisionIds = [
+  'civil-construction',
+  'structural-construction',
+  'general-building',
+  'mechanical-engineering',
+  'electrical-engineering',
+  'plumbing',
+  'plant-hire'
+];
+
+const overviewDivisions: ServiceItem[] = overviewDivisionIds.map((id) => {
+  const service = servicesData.find((item) => item.id === id);
+  if (!service) throw new Error(`Missing service division for overview: ${id}`);
+  return service;
+});
+
 interface ServicesPageProps {
   onNavigate: (page: PageId) => void;
   onRequestQuoteWithService: (serviceName: string) => void;
@@ -220,7 +236,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* Grid of all seven services at a glance */}
-      <section className="py-16 sm:py-20 bg-white border-b border-neutral-200">
+      <section className="py-16 pb-[88px] sm:py-20 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <SectionHeader
             eyebrow="Comprehensive Disciplines"
@@ -228,15 +244,18 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             description="Integrated civil, structural, electrical, and plant hire support tailored for commercial developers, provincial departments, and municipal clients."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {servicesData.map((s) => (
-              <div
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {overviewDivisions.map((s) => (
+              <a
                 key={s.id}
-                onClick={() => {
+                href={`#service-${s.id}`}
+                onClick={(event) => {
+                  event.preventDefault();
                   setActiveServiceId(s.id);
                   window.scrollTo({ top: 350, behavior: 'smooth' });
                 }}
-                className="p-6 rounded-xl border border-neutral-200 bg-neutral-50 hover:bg-white hover:border-orange-500/50 hover:shadow-lg transition duration-200 cursor-pointer group flex flex-col justify-between"
+                aria-label={`Inspect ${s.title} division`}
+                className="group rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6 hover:bg-white hover:border-orange-500/50 hover:shadow-lg transition duration-200 flex flex-col justify-between focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-600"
               >
                 <div className="space-y-3">
                   <div className="w-10 h-10 rounded-lg bg-neutral-200 group-hover:bg-orange-600 group-hover:text-white transition flex items-center justify-center text-neutral-700">
@@ -253,7 +272,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <span>Inspect Division</span>
                   <span>→</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
