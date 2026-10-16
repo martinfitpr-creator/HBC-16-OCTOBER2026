@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" width="100%" height="100%">
+  <!-- Graphic Emblem Group -->
+  <g transform="translate(45, 15)">
+    <!-- Yellow Sun Circle -->
+    <circle cx="50" cy="40" r="24" fill="#F4D014" />
+
+    <!-- Green Rising Swoop -->
+    <path d="M 40 68 C 50 105 70 145 130 160 C 185 174 215 140 220 148 C 175 180 110 175 60 140 C 42 126 34 100 38 68 Z" fill="#43B02A" />
+
+    <!-- Neoclassical Dome & Colonnade Building (Union Buildings / City Hall) -->
+    <g transform="translate(100, 35) scale(0.9)" stroke="#1A1A1A" stroke-width="1.6" fill="#FFFFFF">
+      <!-- Flagpole / Spire -->
+      <line x1="45" y1="5" x2="45" y2="16" />
+      <circle cx="45" cy="5" r="1.5" fill="#1A1A1A" />
+      
+      <!-- Central Dome -->
+      <path d="M 28 32 C 28 16 62 16 62 32 Z" fill="#E8EDF2" />
+      <rect x="25" y="32" width="40" height="6" fill="#D3DCE6" />
+
+      <!-- Pediment (Triangle) -->
+      <polygon points="45,42 10,55 80,55" fill="#F4F7FA" />
+
+      <!-- Entablature Beam -->
+      <rect x="12" y="55" width="66" height="5" fill="#1A1A1A" />
+
+      <!-- Classical Columns -->
+      <rect x="16" y="60" width="4" height="42" fill="#E2E8F0" />
+      <rect x="26" y="60" width="4" height="42" fill="#E2E8F0" />
+      <rect x="36" y="60" width="4" height="42" fill="#E2E8F0" />
+      <rect x="46" y="60" width="4" height="42" fill="#E2E8F0" />
+      <rect x="56" y="60" width="4" height="42" fill="#E2E8F0" />
+      <rect x="66" y="60" width="4" height="42" fill="#E2E8F0" />
+
+      <!-- Base Plinth / Steps -->
+      <rect x="8" y="102" width="74" height="5" fill="#1A1A1A" />
+      <rect x="4" y="107" width="82" height="4" fill="#CBD5E1" />
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(160, 205)" text-anchor="middle">
+    <!-- "CITY OF" -->
+    <text x="0" y="0" 
+          font-family="'Arial', 'Helvetica Neue', sans-serif" 
+          font-size="18" 
+          font-weight="bold" 
+          letter-spacing="2" 
+          fill="#1A1A1A">CITY OF</text>
+
+    <!-- "TSHWANE" -->
+    <text x="0" y="32" 
+          font-family="'Arial Black', 'Impact', sans-serif" 
+          font-size="34" 
+          font-weight="900" 
+          letter-spacing="1" 
+          fill="#1A1A1A">TSHWANE</text>
+
+    <!-- Tagline: "IGNITING EXCELLENCE" -->
+    <text x="0" y="52" 
+          font-family="'Arial', 'Helvetica Neue', sans-serif" 
+          font-size="12" 
+          font-weight="bold" 
+          letter-spacing="3" 
+          fill="#1A1A1A">IGNITING EXCELLENCE</text>
+  </g>
+</svg>

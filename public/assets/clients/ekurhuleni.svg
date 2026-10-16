@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <!-- Emblem Graphic Center -->
+  <g transform="translate(60, 20)">
+    <!-- Multi-colored Background Shield Geometric Segments -->
+    <g transform="translate(15, 20)">
+      <!-- Top Gold Arc / Head Backdrop -->
+      <path d="M 45 35 Q 85 20 125 35 L 120 50 Q 85 38 50 50 Z" fill="#F4B400" />
+      <!-- Left Blue Segment -->
+      <path d="M 32 55 L 75 110 L 45 155 Q 20 110 32 55 Z" fill="#1A4488" />
+      <!-- Right Red Segment -->
+      <path d="M 138 55 L 95 110 L 125 155 Q 150 110 138 55 Z" fill="#D32F2F" />
+      <!-- Center Yellow Slice -->
+      <polygon points="75,110 95,110 85,75" fill="#F4B400" />
+    </g>
+
+    <!-- Vibrant Green Ribbon Dynamic Figure -->
+    <!-- Head Circle -->
+    <circle cx="100" cy="22" r="14" fill="#209E43" />
+
+    <!-- Open Raised Arms (V-Shape Ribbon) -->
+    <path d="M 30 18 C 50 48 70 70 88 88 L 100 98 L 112 88 C 130 70 150 48 170 18 C 160 14 145 28 128 54 C 118 70 110 78 100 85 C 90 78 82 70 72 54 C 55 28 40 14 30 18 Z" fill="#209E43" />
+
+    <!-- Dynamic Looping Body Ribbon / Swirl -->
+    <path d="M 92 98 C 65 130 50 160 62 185 C 75 210 115 205 135 180 C 150 160 135 140 110 142 C 90 144 80 162 90 174 C 98 184 112 180 115 174 C 118 168 110 162 102 165 C 92 168 95 182 106 182 C 120 182 135 155 120 135 C 105 115 80 120 68 140 C 58 160 70 185 90 190 C 120 196 148 165 130 130 Z" fill="#209E43" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(160, 255)" text-anchor="middle">
+    <!-- "Ekurhuleni" -->
+    <text x="0" y="20" 
+          font-family="'Arial', 'Helvetica Neue', sans-serif" 
+          font-size="34" 
+          font-weight="bold" 
+          fill="#1A1A1A" 
+          letter-spacing="-0.5">Ekurhuleni</text>
+
+    <!-- "METROPOLITAN MUNICIPALITY" -->
+    <text x="0" y="44" 
+          font-family="'Arial', 'Helvetica Neue', sans-serif" 
+          font-size="12" 
+          font-weight="bold" 
+          letter-spacing="2" 
+          fill="#333333">METROPOLITAN MUNICIPALITY</text>
+  </g>
+</svg>

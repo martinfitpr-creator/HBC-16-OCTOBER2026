@@ -1,0 +1,448 @@
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { 
+  ArrowRight, 
+  ChevronDown, 
+  ShieldCheck, 
+  Phone,
+} from 'lucide-react';
+import heroConstructionImg from '../assets/images/hero-highway-bridge.jpg';
+import { PageId, ProjectItem, ServiceItem } from '../types';
+import { companyDetails } from '../data/companyData';
+import { servicesData } from '../data/servicesData';
+import { ServiceCard } from '../components/ServiceCard';
+import { ProjectCard } from '../components/ProjectCard';
+import { SectionHeader } from '../components/SectionHeader';
+import { GeographicFootprint } from '../components/GeographicFootprint';
+import { SomeOfOurClients } from '../components/SomeOfOurClients';
+import { projectsData } from '../data/projectsData';
+
+interface HomePageProps {
+  onNavigate: (page: PageId) => void;
+  onRequestQuote: () => void;
+  onSelectProject?: (project: ProjectItem) => void;
+  onSelectService: (service: ServiceItem) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({
+  onNavigate,
+  onRequestQuote,
+  onSelectProject,
+  onSelectService
+}) => {
+  const [showAlternateHeroCopy, setShowAlternateHeroCopy] = useState(false);
+  const prefersReducedMotion = useReducedMotion() ?? false;
+  const scrollRevealProps = {
+    initial: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.15 },
+    transition: { duration: prefersReducedMotion ? 0 : 0.6, ease: 'easeOut' as const }
+  };
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setShowAlternateHeroCopy((showAlternate) => !showAlternate);
+    }, 18000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className="flex flex-col w-full">
+      {/* ─────────────────────────────────────────────────────────────
+          1. HERO SECTION
+          Large-scale construction, roads, bridges, heavy equipment
+      ───────────────────────────────────────────────────────────── */}
+      <section className="home-hero relative isolate flex min-h-[min(820px,calc(100svh_-_80px))] flex-col justify-between overflow-hidden bg-[#0A0F14] text-white">
+        {/* Full-bleed construction photography with a layered, responsive contrast overlay. */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src={heroConstructionImg}
+            alt="HBC Construction bridge construction site with workers and concrete pump truck"
+            width={1920}
+            height={1080}
+            loading="eager"
+            className="h-full w-full object-cover object-[62%_center] max-sm:object-[67%_center]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,15,20,0.88)_0%,rgba(10,15,20,0.72)_38%,rgba(10,15,20,0.38)_68%,rgba(10,15,20,0.12)_100%),linear-gradient(0deg,rgba(10,15,20,0.32)_0%,transparent_45%)] max-sm:bg-[linear-gradient(0deg,rgba(10,15,20,0.72)_0%,rgba(10,15,20,0.58)_42%,rgba(10,15,20,0.30)_100%)]" />
+        </div>
+
+        {/* Hero Content Container */}
+        <div className="home-hero__content relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 py-12 sm:py-16 lg:px-10 lg:py-20">
+          <div className="home-hero__copy mx-auto flex max-w-[850px] flex-col items-center text-center">
+            {/* Eyebrow Header with Orange Line */}
+            <div className="mb-5 flex items-center justify-center gap-4">
+              <div className="h-px w-12 rounded-full bg-orange-500" aria-hidden="true" />
+              <span
+                className="text-xs font-semibold tracking-[0.12em] text-orange-400 uppercase sm:text-sm"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                HBC CONSTRUCTION
+              </span>
+              <div className="h-px w-12 rounded-full bg-orange-500" aria-hidden="true" />
+            </div>
+
+            <div className="grid">
+              <div
+                className="invisible flex flex-col gap-6"
+                style={{ gridArea: '1 / 1' }}
+                aria-hidden="true"
+              >
+                <h1
+                  className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white"
+                  style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
+                >
+                  Building Infrastructure.<br />
+                  <span className="text-orange-400">Creating Opportunity.</span>
+                </h1>
+                <p
+                  className="mx-auto max-w-2xl text-balance text-[clamp(1.0625rem,1.3vw,1.25rem)] font-normal leading-relaxed text-white/90 min-[1000px]:text-xl"
+                  style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+                >
+                  HBC Construction delivers quality construction and turnkey infrastructure solutions across South Africa.
+                </p>
+              </div>
+              <AnimatePresence initial={false} mode="sync">
+                <motion.div
+                  key={showAlternateHeroCopy ? 'alternate' : 'primary'}
+                  className="flex flex-col gap-6"
+                  style={{ gridArea: '1 / 1' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.65, ease: 'easeInOut' }}
+                >
+                  <h1
+                    className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white"
+                    style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
+                  >
+                    {showAlternateHeroCopy ? (
+                      <>
+                        Building Dreams,<br />
+                        <span className="text-orange-400">One Project at a Time</span>
+                      </>
+                    ) : (
+                      <>
+                        Building Infrastructure.<br />
+                        <span className="text-orange-400">Creating Opportunity.</span>
+                      </>
+                    )}
+                  </h1>
+
+                  <p
+                    className="mx-auto max-w-2xl text-balance text-[clamp(1.0625rem,1.3vw,1.25rem)] font-normal leading-relaxed text-white/90 min-[1000px]:text-xl"
+                    style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+                  >
+                    {showAlternateHeroCopy
+                      ? 'Combining expertise, quality workmanship and reliable project delivery.'
+                      : 'HBC Construction delivers quality construction and turnkey infrastructure solutions across South Africa.'}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Premium CTAs with Responsive Mobile Stacking */}
+            <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:max-w-[560px] sm:flex-row sm:items-center">
+              <button
+                onClick={() => onNavigate('projects')}
+                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
+                className="inline-flex h-12 min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange-600 px-5 text-base text-white shadow-lg transition-colors duration-200 hover:bg-orange-500 group active:scale-[0.98] cursor-pointer sm:w-1/2 sm:px-4"
+              >
+                <span>Explore Our Projects</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
+                className="inline-flex h-12 min-h-12 w-full items-center justify-center rounded-lg border border-white/70 bg-[#0A0F14]/35 px-5 text-base text-white backdrop-blur-sm transition-colors duration-200 hover:border-white hover:bg-[#0A0F14]/60 active:scale-[0.98] cursor-pointer sm:w-1/2 sm:px-4"
+              >
+                <span>Talk to HBC</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Bottom Row: Unified, Perfectly Leveled Credibility & Stats Bar */}
+        <div className="home-hero__bottom relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-2 sm:pb-8 lg:mt-16 lg:px-10">
+          <div className="home-hero__stats grid w-full grid-cols-2 items-center gap-x-4 gap-y-3 rounded-2xl border border-neutral-800/90 bg-[#101114]/95 px-4 py-4 shadow-2xl backdrop-blur-md sm:px-6 sm:py-5 min-[1000px]:grid-cols-[minmax(190px,1.1fr)_repeat(4,minmax(0,1fr))] min-[1000px]:gap-0 min-[1000px]:px-8 min-[1000px]:py-5 min-[1000px]:pr-24">
+            <div className="col-span-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-neutral-200 min-[1000px]:col-span-1 min-[1000px]:justify-start">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-orange-500" />
+              <span className="whitespace-nowrap"><strong className="text-white">100%</strong> Black-Owned</span>
+            </div>
+            {[
+              { value: '20+', label: 'Years Experience' },
+              { value: '50+', label: 'Projects Completed' },
+              { value: '8GB / 8CE', label: 'CIDB Grades' },
+              { value: 'Level 1', label: 'B-BBEE' }
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="border-t border-neutral-800 pt-3 text-left min-[1000px]:border-l min-[1000px]:border-t-0 min-[1000px]:py-0 min-[1000px]:pl-5"
+              >
+                <div className="whitespace-nowrap text-xl font-bold leading-none tracking-tight text-amber-400 sm:text-2xl">
+                  {stat.value}
+                </div>
+                <div className="mt-1 whitespace-nowrap text-[10px] font-medium text-neutral-400 sm:text-xs">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          2. COMPANY INTRODUCTION SECTION
+          "Building South Africa's Infrastructure With Purpose"
+      ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-white border-b border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div className="space-y-8" {...scrollRevealProps}>
+            <div className="w-full">
+              <SectionHeader
+                eyebrow="Company Overview"
+                title="Building South Africa's Infrastructure With Purpose"
+                description="We are a Level One-B-BBEE contributor and are registered with the South African Construction Industry Development Board (CIDB). HBC Construction (Pty) Ltd delivers high-impact solutions to clients across civil engineering, building construction, infrastructure and specialist services."
+                align="center"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-2">
+              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
+                <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>20+ Years Experience</span>
+                </div>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  Decades of on-site delivery handling complex geotechnical, structural, and civil site conditions.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
+                <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>Technical Capability</span>
+                </div>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  In-house civil engineers, heavy plant fleet, and specialist project managers executing multi-million Rand tenders.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
+                <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>Quality & Safety First</span>
+                </div>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  Zero-harm safety policy and rigorous quality assurance systems aligned with ISO 9001 standards.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
+                <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>Community Development</span>
+                </div>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  Dedicated youth allocation, local SMME sub-contracting, and skills transfer on all project sites.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+              <button
+                onClick={() => onNavigate('about')}
+                className="inline-flex items-center gap-2 font-bold text-orange-600 hover:text-orange-700 text-sm"
+              >
+                <span>Read Full Company Profile</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <span className="text-neutral-300 hidden sm:inline">|</span>
+              <button
+                onClick={() => onNavigate('capabilities')}
+                className="text-neutral-600 hover:text-neutral-900 text-sm font-semibold"
+              >
+                View Technical Fleet & CIDB Grades
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* ─────────────────────────────────────────────────────────────
+          4. SERVICES SECTION
+          8 Core Service cards with hover transform and line icons
+      ───────────────────────────────────────────────────────────── */}
+      <section className="py-14 sm:py-20 lg:py-24 bg-[#F8F9FA] border-b border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div className="mb-8 sm:mb-12 flex flex-col items-center gap-6 text-center" {...scrollRevealProps}>
+            <SectionHeader
+              eyebrow="OUR SERVICES"
+              eyebrowStyle="dash"
+              title="End-to-End Construction & Engineering"
+              description="From heavy earthworks and arterial bridge upgrades to high-security public buildings, our 8 core service divisions deliver high-quality, reliable and sustainable solutions across South Africa."
+              align="center"
+            />
+            <button
+              onClick={() => onNavigate('services')}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-300 hover:border-orange-500 text-neutral-900 font-bold text-xs uppercase tracking-wider rounded-lg shadow-xs hover:shadow transition flex-shrink-0"
+            >
+              <span>Explore All Capabilities</span>
+              <ArrowRight className="w-4 h-4 text-orange-600" />
+            </button>
+          </motion.div>
+
+          <motion.div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6" {...scrollRevealProps}>
+            {servicesData.map((service) => (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                onSelect={(svc) => {
+                  onSelectService(svc);
+                  onNavigate('services');
+                }}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="border-b border-neutral-200 bg-white py-14 sm:py-20" aria-label="Projects and Case Studies">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div className="mb-8 flex flex-col items-center gap-6 text-center sm:mb-12" {...scrollRevealProps}>
+            <SectionHeader
+              eyebrow="OUR WORK"
+              title="Projects and Case Studies"
+              description="Explore selected infrastructure, construction, and public-sector projects delivered by HBC Construction."
+              align="center"
+            />
+            <button
+              onClick={() => onNavigate('projects')}
+              className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-50 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-neutral-900 shadow-xs transition hover:border-orange-500 hover:shadow"
+            >
+              <span>View All Projects</span>
+              <ArrowRight className="h-4 w-4 text-orange-600" />
+            </button>
+          </motion.div>
+
+          <motion.div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" {...scrollRevealProps}>
+            {projectsData.slice(0, 6).map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onClick={() => {
+                  if (onSelectProject) {
+                    onSelectProject(project);
+                  } else {
+                    onNavigate('projects');
+                  }
+                }}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SOME OF OUR CLIENTS SECTION
+          Featuring premier public, municipal, and commercial partners
+      ───────────────────────────────────────────────────────────── */}
+      <motion.div {...scrollRevealProps}>
+        <SomeOfOurClients
+          onNavigate={onNavigate}
+          onRequestQuote={onRequestQuote}
+        />
+      </motion.div>
+
+      {/* ─────────────────────────────────────────────────────────────
+          GEOGRAPHIC FOOTPRINT SECTION (AFRICA & PROVINCIAL FOOTPRINT)
+      ───────────────────────────────────────────────────────────── */}
+      <motion.div {...scrollRevealProps}>
+        <GeographicFootprint onNavigate={onNavigate} onSelectProject={onSelectProject} />
+      </motion.div>
+
+      <section className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 py-14 text-white sm:py-20">
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/3 bg-orange-600/10 blur-3xl" />
+        <motion.div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8" {...scrollRevealProps}>
+          <div className="mx-auto flex max-w-3xl flex-col items-center space-y-4 sm:space-y-5">
+            <div className="inline-flex items-center gap-2 rounded border border-orange-500/30 bg-orange-600/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-400">
+              <span>Ready for Procurement &amp; Tenders</span>
+            </div>
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Have a Project in Mind?
+            </h2>
+            <p className="text-sm leading-relaxed text-neutral-300 sm:text-base lg:text-lg">
+              Talk to HBC Construction about your next infrastructure or construction project. Our estimating team provides detailed bill of quantities consultations and turnkey engineering support.
+            </p>
+            <div className="flex w-full flex-col items-stretch justify-center gap-3 pt-2 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+              <button
+                onClick={onRequestQuote}
+                className="flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-orange-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-orange-600/30 active:scale-95 sm:w-auto sm:text-base"
+              >
+                <span>Get in Touch</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => onNavigate('contact')}
+                className="flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-neutral-700 bg-neutral-800 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-neutral-700 active:scale-95 sm:w-auto sm:text-base"
+              >
+                <Phone className="h-4 w-4 text-orange-500" />
+                <span>Contact Head Office (011 314 4737)</span>
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20" aria-label="Frequently Asked Questions">
+        <motion.div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8" {...scrollRevealProps}>
+          <SectionHeader
+            eyebrow="FAQs"
+            title="Frequently Asked Questions"
+            description="Learn more about HBC Construction's services, capabilities, and project delivery."
+            align="center"
+          />
+          <div className="mt-10 space-y-3">
+            {[
+              {
+                question: 'What construction and engineering services does HBC provide?',
+                answer: 'HBC delivers civil engineering, building construction, electrical engineering, air conditioning and refrigeration, fencing and security barriers, plant hire, and related infrastructure services.'
+              },
+              {
+                question: 'Where does HBC Construction operate?',
+                answer: 'HBC is headquartered in Midrand, Gauteng, and delivers projects across South Africa, with cross-border infrastructure mobilization capability throughout Southern Africa.'
+              },
+              {
+                question: 'What CIDB grades does HBC hold?',
+                answer: 'HBC holds CIDB Grade 8GB PE for General Building and Grade 8CE PE for Civil Engineering, with additional Grade 7 ratings in electrical and mechanical disciplines.'
+              },
+              {
+                question: 'Can HBC deliver multidisciplinary or turnkey projects?',
+                answer: 'Yes. HBC combines construction and engineering disciplines to coordinate integrated project delivery, from early works through construction and handover.'
+              },
+              {
+                question: 'How can I discuss a project or request a quotation?',
+                answer: 'Use the Get in Touch button above or visit the Contact page to find HBC’s enquiry form and direct contact details.'
+              }
+            ].map(({ question, answer }) => (
+              <details
+                key={question}
+                className="group rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4 open:bg-white open:shadow-sm sm:px-6"
+              >
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-neutral-900 marker:hidden [&::-webkit-details-marker]:hidden">
+                  <span>{question}</span>
+                  <ChevronDown className="h-5 w-5 shrink-0 text-orange-600 transition-transform group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <p className="pt-3 pr-8 text-sm leading-relaxed text-neutral-600 sm:text-base">
+                  {answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+};
