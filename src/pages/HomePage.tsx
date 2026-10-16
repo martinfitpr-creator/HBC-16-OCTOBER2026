@@ -5,7 +5,7 @@ import {
   ChevronDown, 
   Phone,
 } from 'lucide-react';
-import heroConstructionImg from '../assets/images/hero-highway-bridge.jpg';
+import heroConstructionImg from '../assets/images/hero-highway-bridge-optimized.jpg';
 import { PageId, ProjectItem, ServiceItem } from '../types';
 import { companyDetails } from '../data/companyData';
 import { servicesData } from '../data/servicesData';

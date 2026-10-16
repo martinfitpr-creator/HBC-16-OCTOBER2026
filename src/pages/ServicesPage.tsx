@@ -15,7 +15,7 @@ import {
 import { PageId, ServiceItem } from '../types';
 import { servicesData } from '../data/servicesData';
 import { SectionHeader } from '../components/SectionHeader';
-import servicesHeroBg from '../assets/images/services-hero-bg.jpg';
+import servicesHeroBg from '../assets/images/services-hero-bg-optimized.jpg';
 import servicesCalloutBg from '../assets/images/services-cta-roofing.jpg';
 
 interface ServicesPageProps {

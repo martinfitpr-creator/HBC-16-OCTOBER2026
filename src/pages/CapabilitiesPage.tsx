@@ -15,7 +15,7 @@ import {
 import { PageId } from '../types';
 import { companyDetails } from '../data/companyData';
 import { SectionHeader } from '../components/SectionHeader';
-import capabilitiesHeroBg from '../assets/images/capabilities-crane-site.png';
+import capabilitiesHeroBg from '../assets/images/capabilities-crane-site-optimized.jpg';
 
 interface CapabilitiesPageProps {
   onNavigate: (page: PageId) => void;

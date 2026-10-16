@@ -3,7 +3,7 @@ import mamelodiFireStationImg from '../assets/images/mamelodi-fire-station.jpg';
 import sowetoRoadImg from '../assets/images/soweto-jabulani-molele-road.jpg';
 import aloeHouseImg from '../assets/images/graaf-reinet-aloe-house.jpg';
 import sowetoAsphaltImg from '../assets/images/soweto-road-asphalt.jpg';
-import bridgeOverRailImg from '../assets/images/bridge-over-rail-soweto.png';
+import bridgeOverRailImg from '../assets/images/bridge-over-rail-soweto-optimized.jpg';
 import alexandraBridgeImg from '../assets/images/alexandra-bridge-extension.jpg';
 import graaffReinetDormitoryImg from '../assets/images/graaff-reinet-saps-dormitory.jpg';
 import hammanskraalStormwaterImg from '../assets/images/hammanskraal-kudube-stormwater.jpg';
@@ -1095,4 +1095,3 @@ export const projectsData: ProjectItem[] = [
     isFeatured: false
   }
 ];
-
