@@ -16,7 +16,7 @@ import { GeographicFootprint } from '../components/GeographicFootprint';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import { projectsData } from '../data/projectsData';
 import servicesIntroBg from '../assets/images/services-intro-bridge.jpg';
-import projectsIntroBg from '../assets/images/projects-intro-ud-trucks.jpg';
+import projectsIntroBg from '../assets/images/projects-intro-warehouse.jpg';
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;

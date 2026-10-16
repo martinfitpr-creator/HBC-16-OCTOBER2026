@@ -8,6 +8,7 @@ import tshwaneLogo from '../assets/clients/city-of-tshwane.png';
 import dbsaLogo from '../assets/clients/dbsa.png';
 import udTrucksLogo from '../assets/clients/ud-trucks.svg';
 import jraLogo from '../assets/clients/jra.jpg';
+import clientsIntroBg from '../assets/images/projects-intro-ud-trucks.jpg';
 
 export interface ClientItem {
   id: string;
@@ -115,25 +116,35 @@ export const SomeOfOurClients: React.FC<SomeOfOurClientsProps> = ({
   const [selectedClient, setSelectedClient] = useState<ClientItem | null>(null);
 
   return (
-    <section id="some-of-our-clients" className="py-14 sm:py-20 lg:py-24 bg-neutral-50 border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-4">
+    <section id="some-of-our-clients" className="border-b border-neutral-200 bg-neutral-50">
+      <div className="relative isolate overflow-hidden bg-neutral-950 px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <img
+          src={clientsIntroBg}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-neutral-950/60" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-4 text-center">
           <SectionHeader
             eyebrow="Trusted Partnerships"
             title="Some of Our Clients"
             description="HBC Construction takes pride in delivering institutional-grade civil, structural, and infrastructure contracts for South Africa's most prominent public entities, metropolitan municipalities, development agencies, and commercial leaders."
             align="center"
+            dark
           />
 
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 text-neutral-700 text-xs font-semibold shadow-xs">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <div className="flex flex-shrink-0 items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-neutral-950/35 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs backdrop-blur-sm">
+              <ShieldCheck className="h-4 w-4 text-emerald-400" />
               <span>Verified On-Site Delivery Track Record</span>
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:space-y-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         {/* Client Logos Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {clientsList.map((client) => {
