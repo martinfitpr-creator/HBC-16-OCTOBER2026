@@ -62,7 +62,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             height={1080}
             loading="eager"
             fetchPriority="high"
-            className="h-full w-full object-cover object-[62%_center] max-sm:object-[67%_center]"
+            className="h-full w-full object-cover object-[62%_center] max-sm:object-[85%_center]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,15,20,0.88)_0%,rgba(10,15,20,0.72)_38%,rgba(10,15,20,0.38)_68%,rgba(10,15,20,0.12)_100%),linear-gradient(0deg,rgba(10,15,20,0.32)_0%,transparent_45%)] max-sm:bg-[linear-gradient(0deg,rgba(10,15,20,0.72)_0%,rgba(10,15,20,0.58)_42%,rgba(10,15,20,0.30)_100%)]" />
         </div>
