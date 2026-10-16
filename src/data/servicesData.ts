@@ -4,6 +4,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'electrical-engineering',
     title: 'Electrical Engineering',
+    cardCaption: 'Power Systems And Lighting',
     shortDescription: 'Electrical infrastructure and project-related electrical works.',
     detailedDescription: 'End-to-end electrical engineering for civil infrastructure and building projects. Our electrical teams deliver MV/LV reticulation, substation equipment installation, backup power generation, street lighting networks, and internal electrical distribution.',
     iconName: 'Zap',
@@ -19,6 +20,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'general-building',
     title: 'General Building',
+    cardCaption: 'Commercial And Public Buildings',
     shortDescription: 'Commercial, institutional, public-sector and industrial buildings.',
     detailedDescription: 'Turnkey building solutions spanning civic infrastructure, correctional facilities, higher education lecture complexes, police stations, healthcare clinics, and commercial warehousing. We integrate building structure, brickwork, roofing, finishes, and specialist trades into cohesive delivery.',
     iconName: 'Building2',
@@ -34,6 +36,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'plant-hire',
     title: 'Plant Hire',
+    cardCaption: 'Heavy Equipment And Operators',
     shortDescription: 'Construction plant and equipment supporting project delivery.',
     detailedDescription: 'Modern, rigorously maintained fleet of heavy earthmoving machinery, compaction equipment, transport tippers, and site plant. Backed by certified operators and mobile mechanical field support to maximize uptime on high-production sites.',
     iconName: 'Truck',
@@ -49,6 +52,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'civil-construction',
     title: 'Civil Construction',
+    cardCaption: 'Roads, Bridges And Earthworks',
     shortDescription: 'Roads, bridges, earthworks and civil infrastructure.',
     detailedDescription: 'Comprehensive civil construction capabilities for municipal, provincial, and national infrastructure projects. Our teams execute earthworks, bridge construction and rehabilitation, stormwater drainage, roadworks, and water infrastructure under strict engineering oversight.',
     iconName: 'Layers',
@@ -64,6 +68,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'mechanical-engineering',
     title: 'Mechanical Engineering',
+    cardCaption: 'HVAC And Mechanical Systems',
     shortDescription: 'Mechanical, HVAC, refrigeration and ventilation systems.',
     detailedDescription: 'Mechanical engineering solutions for building and infrastructure projects, including HVAC, refrigeration, mechanical ventilation, plant rooms, and building services. Our teams install, integrate, and commission systems to meet project specifications.',
     iconName: 'Settings',
@@ -79,6 +84,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'plumbing',
     title: 'Plumbing',
+    cardCaption: 'Water Supply And Drainage',
     shortDescription: 'Water supply, drainage and plumbing systems for buildings.',
     detailedDescription: 'Plumbing installation and maintenance for commercial, institutional, and public buildings. Work includes water supply, hot-water systems, sanitaryware, soil and waste drainage, and stormwater connections, coordinated with the wider building services.',
     iconName: 'Wrench',
@@ -94,6 +100,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: 'structural-construction',
     title: 'Structural Construction',
+    cardCaption: 'Concrete And Structural Steel',
     shortDescription: 'Structural concrete, steelwork and building frameworks.',
     detailedDescription: 'Structural construction for building and infrastructure projects, delivered to approved drawings and engineering specifications. Our work includes reinforced concrete, structural steel, foundations, retaining structures, and bridge components.',
     iconName: 'HardHat',

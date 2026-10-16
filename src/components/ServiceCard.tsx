@@ -59,13 +59,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) =
           {getIcon()}
         </div>
 
-        {/* Title and Disciplines Count */}
+        {/* Trade Title and Caption */}
         <div className="mt-3.5 sm:mt-5">
           <h3 className="text-sm sm:text-base lg:text-lg font-bold text-neutral-900 tracking-tight leading-snug group-hover:text-orange-600 transition-colors">
             {service.title}
           </h3>
           <p className="text-[11px] sm:text-xs text-neutral-400 font-normal mt-1 sm:mt-1.5">
-            {service.capabilities.length} Core Disciplines
+            {service.cardCaption}
           </p>
         </div>
       </div>

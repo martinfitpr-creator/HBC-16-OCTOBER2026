@@ -40,6 +40,7 @@ export interface ProjectItem {
 export interface ServiceItem {
   id: string;
   title: string;
+  cardCaption: string;
   shortDescription: string;
   detailedDescription: string;
   iconName: 'HardHat' | 'Building2' | 'Zap' | 'Truck' | 'Layers' | 'Settings' | 'Wrench';
