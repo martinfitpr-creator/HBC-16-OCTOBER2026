@@ -38,7 +38,7 @@ export const staticSearchItems: SearchResultItem[] = [
     id: 'page-about',
     title: 'About HBC Construction',
     subtitle: 'History, Leadership & 100% Black-Owned Profile',
-    description: 'Over 20 years of multidisciplinary construction excellence, corporate profile, executive management, and Level 1 B-BBEE commitment.',
+    description: 'Over 30 years of multidisciplinary construction excellence, corporate profile, executive management, and Level 1 B-BBEE commitment.',
     category: 'pages',
     categoryLabel: 'Page',
     badge: 'Corporate',

@@ -185,7 +185,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 space-y-1.5">
                 <div className="flex items-center gap-2 font-bold text-neutral-900 text-sm">
                   <span className="w-2 h-2 rounded-full bg-orange-600"></span>
-                  <span>20+ Years Experience</span>
+                  <span>30+ Years Experience</span>
                 </div>
                 <p className="text-xs text-neutral-600 leading-relaxed">
                   Decades of on-site delivery handling complex geotechnical, structural, and civil site conditions.

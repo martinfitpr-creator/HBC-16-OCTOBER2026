@@ -43,9 +43,9 @@ export const companyStatistics: StatisticItem[] = [
     subtext: '8GB PE, 8CE PE, 7EB PE, 7ME PE, 7EP PE for major infrastructure projects'
   },
   {
-    value: '20+',
+    value: '30+',
     label: 'Years of Experience',
-    subtext: 'Two decades of proven execution across civil, commercial and public works'
+    subtext: 'Three decades of proven execution across civil, commercial and public works'
   },
   {
     value: '8+',

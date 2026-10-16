@@ -111,7 +111,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
               {[
                 '100% Black-Owned South African Enterprise',
                 'CIDB Grades: 8GB PE, 8CE PE, 7EB, 7ME, 7EP',
-                'Over 20 Years of Cumulative Field Experience',
+                'Over 30 Years of Construction Experience',
                 'Strict Alignment with ISO 9001 Quality Principles',
                 'Dedicated Youth & Local SMME Empowerment',
                 'In-House Plant & Equipment Fleet'
