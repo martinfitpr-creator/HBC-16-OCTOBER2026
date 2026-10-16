@@ -65,7 +65,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-white mt-1">Request a Project Tender & Quotation</h3>
             <p className="text-[11px] sm:text-xs text-neutral-400 mt-0.5">
-              CIDB Level 8/7 Turnkey Multidisciplinary Construction Solutions
+              CIDB Grades 9GB / 9CE Turnkey Multidisciplinary Construction Solutions
             </p>
           </div>
           <button

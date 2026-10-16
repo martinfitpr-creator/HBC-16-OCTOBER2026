@@ -389,7 +389,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               },
               {
                 question: 'What CIDB grades does HBC hold?',
-                answer: 'HBC holds CIDB Grade 8GB PE for General Building and Grade 8CE PE for Civil Engineering, with additional Grade 7 ratings in electrical and mechanical disciplines.'
+                answer: 'HBC holds CIDB Grade 9GB for General Building and Grade 9CE for Civil Engineering, with additional Grade 7 ratings in electrical and mechanical disciplines.'
               },
               {
                 question: 'Can HBC deliver multidisciplinary or turnkey projects?',

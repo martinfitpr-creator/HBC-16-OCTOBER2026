@@ -36,7 +36,7 @@ export const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
     { label: 'Civil, Roads & Bridges', text: 'Good day HBC Construction, I am enquiring regarding civil engineering / road construction services.' },
     { label: 'Building & Infrastructure', text: 'Hi HBC Construction, I would like to discuss a commercial / public building construction project.' },
     { label: 'Plant Hire & Fleet', text: 'Hello HBC team, I would like to enquire about your plant hire equipment and availability.' },
-    { label: 'CIDB Compliance & Profile', text: 'Good day, please share your CIDB Level 8/7 company profile and compliance pack.' },
+    { label: 'CIDB Compliance & Profile', text: 'Good day, please share your CIDB Grade 9GB / 9CE company profile and compliance pack.' },
   ];
 
   const handleSelectTopic = (enquiryText: string, label: string) => {
@@ -90,7 +90,7 @@ export const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
                 <div>
                   <h3 className="font-extrabold text-sm tracking-tight text-white flex items-center gap-1.5">
                     <span>HBC Construction</span>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-600/30 text-orange-400 border border-orange-500/40">CIDB 8/7</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-600/30 text-orange-400 border border-orange-500/40">CIDB 9GB / 9CE</span>
                   </h3>
                   <p className="text-[12px] text-neutral-300 font-medium">
                     Technical & Tender Enquiries
@@ -156,7 +156,7 @@ export const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
               </p>
               <div className="pt-1 flex items-center gap-2 text-[11px] text-neutral-500 border-t border-neutral-100">
                 <ShieldCheck className="w-3.5 h-3.5 text-orange-600" />
-                <span>100% Black-Owned • Level 8/7 CIDB Registered</span>
+                <span>100% Black-Owned • CIDB Grade 9GB / 9CE</span>
               </div>
             </div>
 

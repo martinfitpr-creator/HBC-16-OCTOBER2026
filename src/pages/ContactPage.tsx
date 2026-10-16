@@ -156,7 +156,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   Statutory Registration Codes
                 </div>
                 <div>Company Reg: <span className="text-white font-mono">{companyDetails.companyReg}</span></div>
-                <div>CIDB CRS Registration: <span className="text-white font-mono">{companyDetails.cidbReg}</span> (8GB PE / 8CE PE)</div>
+                <div>CIDB CRS Registration: <span className="text-white font-mono">{companyDetails.cidbReg}</span> (9GB / 9CE)</div>
               </div>
             </div>
 

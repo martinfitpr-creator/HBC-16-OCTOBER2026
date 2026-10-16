@@ -196,7 +196,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               <div className="space-y-1 text-center sm:text-left">
                 <div className="text-xs uppercase tracking-wider text-orange-400 font-bold">Turnkey Project Delivery</div>
                 <h4 className="text-lg font-bold text-white">Need similar capability for your infrastructure tender?</h4>
-                <p className="text-xs text-neutral-300">HBC Construction combines technical expertise with CIDB Level 8/7 delivery.</p>
+                <p className="text-xs text-neutral-300">HBC Construction combines technical expertise with CIDB Grade 9GB and 9CE delivery.</p>
               </div>
               <button
                 onClick={() => {

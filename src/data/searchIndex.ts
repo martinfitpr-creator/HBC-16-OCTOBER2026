@@ -26,13 +26,13 @@ export const staticSearchItems: SearchResultItem[] = [
     id: 'page-home',
     title: 'Home',
     subtitle: 'Building Infrastructure. Creating Opportunity.',
-    description: 'HBC Construction overview, CIDB Level 8/7 accreditations, key infrastructure projects, and turnkey construction group profile.',
+    description: 'HBC Construction overview, CIDB Grade 9GB and 9CE accreditations, key infrastructure projects, and turnkey construction group profile.',
     category: 'pages',
     categoryLabel: 'Page',
     badge: 'Overview',
     pageId: 'home',
     actionType: 'navigate',
-    keywords: ['home', 'overview', 'excellence in execution', 'cidb level 8', '100% black owned', 'south africa', 'turnkey']
+    keywords: ['home', 'overview', 'excellence in execution', 'cidb grade 9gb', 'cidb grade 9ce', '100% black owned', 'south africa', 'turnkey']
   },
   {
     id: 'page-about',
@@ -74,10 +74,10 @@ export const staticSearchItems: SearchResultItem[] = [
     id: 'page-capabilities',
     title: 'Capabilities & In-House Plant Fleet',
     subtitle: 'CIDB Ratings & Heavy Machinery Fleet',
-    description: 'CIDB 8GB PE, 8CE PE ratings, fleet of excavators, motor graders, rollers, ADTs, quality standards, and technical workforce capacity.',
+    description: 'CIDB Grade 9GB and 9CE ratings, additional Grade 7 electrical and mechanical ratings, fleet of excavators, motor graders, rollers, ADTs, quality standards, and technical workforce capacity.',
     category: 'capabilities',
     categoryLabel: 'Capability',
-    badge: 'CIDB 8/7',
+    badge: 'CIDB 9/7',
     pageId: 'capabilities',
     actionType: 'navigate',
     keywords: ['capabilities', 'plant fleet', 'heavy machinery', 'excavators', 'graders', 'equipment', 'cidb ratings', 'fleet hire']
@@ -172,15 +172,15 @@ export const staticSearchItems: SearchResultItem[] = [
   // Corporate Accreditations
   {
     id: 'accreditation-cidb',
-    title: 'CIDB Level 8GB PE & 8CE PE',
+    title: 'CIDB Grade 9GB & 9CE',
     subtitle: 'National Construction Industry Development Board',
-    description: 'Certified to undertake public sector building projects (8GB) and civil engineering infrastructure (8CE) up to R200 Million per contract.',
+    description: 'CIDB Grade 9GB for General Building and Grade 9CE for Civil Engineering, with additional Grade 7 ratings in electrical and mechanical disciplines.',
     category: 'capabilities',
     categoryLabel: 'Accreditation',
-    badge: 'CIDB 8/7',
+    badge: 'CIDB 9/7',
     pageId: 'capabilities',
     actionType: 'navigate',
-    keywords: ['cidb', '8gb', '8ce', 'grading', 'contractor grading', 'tender limit', 'public works', 'crs 104526']
+    keywords: ['cidb', '9gb', '9ce', 'grade 9', 'grading', 'contractor grading', 'public works', 'crs 104526']
   },
   {
     id: 'accreditation-bbbee',

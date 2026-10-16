@@ -99,7 +99,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
 
             <div className="space-y-4 text-center text-sm leading-relaxed text-neutral-700 sm:text-base">
               <p>
-                With CIDB Grade 8GB PE (General Building) and Grade 8CE PE (Civil Engineering) accreditations, HBC is authorized and equipped to undertake major infrastructure contracts exceeding R200 million. Complementary Grade 7 ratings in Electrical (EB/EP) and Mechanical Engineering (ME) allow us to execute comprehensive, self-performed infrastructure solutions without fragmentation.
+                With CIDB Grade 9GB (General Building) and Grade 9CE (Civil Engineering) accreditations, HBC is equipped to undertake major building and civil engineering projects. Complementary Grade 7 ratings in Electrical (EB/EP) and Mechanical Engineering (ME) allow us to execute comprehensive, self-performed infrastructure solutions without fragmentation.
               </p>
               <p>
                 Headquartered in Midrand, Gauteng, our footprint spans national provincial corridors, urban revitalisation zones, and developing municipal nodes. We combine heavy equipment capital, experienced site agents, strict safety protocols, and deep commitment to local socio-economic transformation.
@@ -110,7 +110,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-3 pt-2 text-center sm:grid-cols-2 lg:grid-cols-3">
               {[
                 '100% Black-Owned South African Enterprise',
-                'CIDB Grades: 8GB PE, 8CE PE, 7EB, 7ME, 7EP',
+                'CIDB Grades: 9GB, 9CE, 7EB, 7ME, 7EP',
                 'Over 30 Years of Construction Experience',
                 'Strict Alignment with ISO 9001 Quality Principles',
                 'Dedicated Youth & Local SMME Empowerment',

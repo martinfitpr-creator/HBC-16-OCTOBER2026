@@ -30,7 +30,7 @@ interface SearchModalProps {
 const POPULAR_SEARCHES = [
   'Civil Engineering',
   'Joe Hlahla Bridge',
-  'CIDB Level 8',
+  'CIDB Grade 9GB / 9CE',
   'Plant Hire Fleet',
   'SAPS Police Stations',
   'Midrand Head Office',

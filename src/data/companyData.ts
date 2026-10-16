@@ -6,8 +6,8 @@ export const companyDetails: CorporateRegistration = {
   companyReg: '2008/019463/07',
   cidbReg: '104526',
   cidbGrades: [
-    '8GB PE (General Building)',
-    '8CE PE (Civil Engineering)',
+    '9GB (General Building)',
+    '9CE (Civil Engineering)',
     '7EB PE (Electrical Engineering Building)',
     '7ME PE (Mechanical Engineering)',
     '7EP PE (Electrical Engineering Infrastructure)'
@@ -38,9 +38,9 @@ export const companyStatistics: StatisticItem[] = [
     subtext: 'Committed to empowerment and inclusive economic development across South Africa'
   },
   {
-    value: 'Level 8 / 7',
+    value: '9GB / 9CE',
     label: 'CIDB Accreditation',
-    subtext: '8GB PE, 8CE PE, 7EB PE, 7ME PE, 7EP PE for major infrastructure projects'
+    subtext: '9GB, 9CE, 7EB PE, 7ME PE, 7EP PE for major infrastructure projects'
   },
   {
     value: '30+',

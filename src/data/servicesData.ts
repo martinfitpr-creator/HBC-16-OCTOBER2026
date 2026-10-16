@@ -14,7 +14,7 @@ export const servicesData: ServiceItem[] = [
       'Bulk earthworks, terracing, cut-to-fill and soil stabilization',
       'Water and sanitation reticulation pipelines'
     ],
-    applicableStandards: ['COLTO Specifications', 'SANS 1200 / SANS 2001', 'CIDB 8CE PE Certified']
+    applicableStandards: ['COLTO Specifications', 'SANS 1200 / SANS 2001', 'CIDB Grade 9CE']
   },
   {
     id: 'building-construction',
@@ -29,7 +29,7 @@ export const servicesData: ServiceItem[] = [
       'Industrial warehouses, distribution hubs and logistics facilities',
       'High-security correctional and justice precinct construction'
     ],
-    applicableStandards: ['National Building Regulations (NBR)', 'SANS 10400', 'CIDB 8GB PE Certified']
+    applicableStandards: ['National Building Regulations (NBR)', 'SANS 10400', 'CIDB Grade 9GB']
   },
   {
     id: 'fencing-security',

@@ -67,25 +67,25 @@ export const CapabilitiesPage: React.FC<CapabilitiesPageProps> = ({
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Grade 8GB */}
+            {/* Grade 9GB */}
             <div className="p-6 rounded-xl bg-neutral-50 border border-neutral-200 hover:border-orange-500/50 transition duration-200 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-extrabold text-neutral-900">8GB PE</span>
+                <span className="text-2xl font-mono font-extrabold text-neutral-900">9GB</span>
               </div>
               <h4 className="font-bold text-sm text-neutral-900">General Building Operations</h4>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                Qualified for commercial, civic, correctional, hospital, and multi-storey institutional structures with tender capability up to R200 Million.
+                Qualified for commercial, civic, correctional, hospital, and multi-storey institutional building projects.
               </p>
             </div>
 
-            {/* Grade 8CE */}
+            {/* Grade 9CE */}
             <div className="p-6 rounded-xl bg-neutral-50 border border-neutral-200 hover:border-orange-500/50 transition duration-200 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-extrabold text-neutral-900">8CE PE</span>
+                <span className="text-2xl font-mono font-extrabold text-neutral-900">9CE</span>
               </div>
               <h4 className="font-bold text-sm text-neutral-900">Civil Engineering Infrastructure</h4>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                Approved for major arterial highways, bridge rehabilitation, bulk stormwater channels, earthworks, and municipal services up to R200 Million.
+                Approved for major arterial highways, bridge rehabilitation, bulk stormwater channels, earthworks, and municipal services.
               </p>
             </div>
 

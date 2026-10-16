@@ -42,7 +42,7 @@ export const GeographicFootprint: React.FC<GeographicFootprintProps> = ({
           </div>
           
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed text-neutral-600 sm:text-base">
-            Headquartered in Midrand, Gauteng, HBC Construction combines national CIDB Grade 8/7 delivery capacity across South Africa’s provincial economic corridors with cross-border infrastructure mobilization capability throughout Southern Africa.
+            Headquartered in Midrand, Gauteng, HBC Construction combines national CIDB Grade 9GB and 9CE delivery capacity across South Africa’s provincial economic corridors with cross-border infrastructure mobilization capability throughout Southern Africa.
           </p>
 
           {/* View Mode Toggle Tabs */}
@@ -493,7 +493,7 @@ export const GeographicFootprint: React.FC<GeographicFootprintProps> = ({
               <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
                 <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
                   <Building2 className="w-4 h-4 text-[#0A3670]" />
-                  <span>National CIDB Level 8/7</span>
+                  <span>National CIDB Grades 9GB / 9CE</span>
                 </div>
                 <p className="text-xs text-neutral-600">
                   Authorized to tender and lead public infrastructure works up to R200M+ across all provinces.
