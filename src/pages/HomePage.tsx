@@ -248,7 +248,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* ─────────────────────────────────────────────────────────────
           4. SERVICES SECTION
-          8 Core Service cards with hover transform and line icons
+          Seven core service cards with hover transform and line icons
       ───────────────────────────────────────────────────────────── */}
       <section className="border-b border-neutral-200">
         <div className="relative isolate overflow-hidden bg-neutral-950 px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8 lg:py-24">
@@ -270,7 +270,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 End-to-End Construction &amp; Engineering
               </h2>
               <p className="text-base font-normal leading-[1.7] text-white sm:text-lg">
-                From heavy earthworks and arterial bridge upgrades to high-security public buildings, our 8 core service divisions deliver high-quality, reliable and sustainable solutions across South Africa.
+                From roads and structural works to public buildings and building services, our seven core divisions deliver reliable, sustainable solutions across South Africa.
               </p>
             </div>
             <button
@@ -414,7 +414,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {[
               {
                 question: 'What construction and engineering services does HBC provide?',
-                answer: 'HBC delivers civil engineering, building construction, electrical engineering, air conditioning and refrigeration, fencing and security barriers, plant hire, and related infrastructure services.'
+                answer: 'HBC delivers Electrical Engineering, General Building, Plant Hire, Civil Construction, Mechanical Engineering, Plumbing, and Structural Construction.'
               },
               {
                 question: 'Where does HBC Construction operate?',

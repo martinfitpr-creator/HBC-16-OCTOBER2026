@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { 
   Layers, 
   Building2, 
-  ShieldCheck, 
   Zap, 
-  Wind, 
   Truck, 
-  Pickaxe, 
   HardHat, 
   ArrowRight,
   CheckCircle2,
   FileCheck,
-  Phone
+  Phone,
+  Settings,
+  Wrench
 } from 'lucide-react';
 import { PageId, ServiceItem } from '../types';
 import { servicesData } from '../data/servicesData';
 import { SectionHeader } from '../components/SectionHeader';
 import servicesHeroBg from '../assets/images/services-hero-bg.jpg';
+import servicesCalloutBg from '../assets/images/services-cta-roofing.jpg';
 
 interface ServicesPageProps {
   onNavigate: (page: PageId) => void;
@@ -51,11 +51,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
     switch (iconName) {
       case 'Layers': return <Layers className="w-5 h-5" />;
       case 'Building2': return <Building2 className="w-5 h-5" />;
-      case 'ShieldCheck': return <ShieldCheck className="w-5 h-5" />;
       case 'Zap': return <Zap className="w-5 h-5" />;
-      case 'Wind': return <Wind className="w-5 h-5" />;
       case 'Truck': return <Truck className="w-5 h-5" />;
-      case 'Pickaxe': return <Pickaxe className="w-5 h-5" />;
+      case 'Settings': return <Settings className="w-5 h-5" />;
+      case 'Wrench': return <Wrench className="w-5 h-5" />;
       case 'HardHat':
       default: return <HardHat className="w-5 h-5" />;
     }
@@ -83,7 +82,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               Turnkey Engineering & Construction Services
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              HBC Construction (Pty) Ltd operates across eight specialized divisions, offering unified management, robust capital resources, and technical engineering delivery under South African standards.
+              HBC Construction (Pty) Ltd operates across seven specialized divisions, offering unified management, robust capital resources, and technical engineering delivery under South African standards.
             </p>
           </div>
         </div>
@@ -93,7 +92,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       <section id="services-detail" className="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Nav: 8 Service Tabs */}
+            {/* Left Nav: 7 Service Tabs */}
             <div className="lg:col-span-4 space-y-2">
               <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3 px-2">
                 Select Service Division
@@ -220,12 +219,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* Grid of All 8 Services at a glance */}
+      {/* Grid of all seven services at a glance */}
       <section className="py-16 sm:py-20 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <SectionHeader
             eyebrow="Comprehensive Disciplines"
-            title="Overview of All 8 Divisions"
+            title="Overview of All 7 Divisions"
             description="Integrated civil, structural, electrical, and plant hire support tailored for commercial developers, provincial departments, and municipal clients."
           />
 
@@ -261,11 +260,19 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* Consultation Banner */}
-      <section className="py-14 bg-neutral-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-1">
+      <section className="relative isolate overflow-hidden py-14 text-white">
+        <img
+          src={servicesCalloutBg}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-neutral-950/70" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+          <div className="space-y-1 text-center sm:text-left">
             <h3 className="text-xl font-bold text-white">Need a customized turnkey package?</h3>
-            <p className="text-xs sm:text-sm text-neutral-400">Our engineering team combines multiple divisions into single-point contractual responsibility.</p>
+            <p className="text-xs text-white sm:text-sm">Our engineering team combines multiple divisions into single-point contractual responsibility.</p>
           </div>
           <button
             onClick={() => onRequestQuoteWithService('Multi-disciplinary Turnkey')}

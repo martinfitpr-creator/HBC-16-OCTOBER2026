@@ -42,7 +42,7 @@ export interface ServiceItem {
   title: string;
   shortDescription: string;
   detailedDescription: string;
-  iconName: 'HardHat' | 'Building2' | 'ShieldCheck' | 'Zap' | 'Wind' | 'Truck' | 'Pickaxe' | 'Layers';
+  iconName: 'HardHat' | 'Building2' | 'Zap' | 'Truck' | 'Layers' | 'Settings' | 'Wrench';
   capabilities: string[];
   applicableStandards?: string[];
 }

@@ -125,8 +125,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className={`${mobileMenuOpen ? 'fixed' : 'sticky'} top-0 z-[60] w-full transition-all duration-300`}>
       {/* Main Navigation Bar */}
       <nav className={`h-20 w-full transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/90' 
+        mobileMenuOpen
+        ? 'bg-white border-b border-neutral-200'
+        : isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/90'
         : 'bg-white border-b border-neutral-200'
       }`}>
         <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-6 lg:px-10">
@@ -343,15 +345,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-neutral-800 hover:text-orange-600 hover:bg-neutral-100 rounded-lg transition active:scale-95 cursor-pointer"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-drawer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+      </nav>
+
+      {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="fixed inset-x-0 top-20 bottom-0 z-50 min-[1000px]:hidden border-t border-neutral-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top duration-200 overflow-y-auto overscroll-contain">
+          <div id="mobile-navigation-drawer" className="fixed inset-x-0 top-20 bottom-0 z-[70] min-[1000px]:hidden border-t border-neutral-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top duration-200 overflow-y-auto overscroll-contain" role="navigation" aria-label="Mobile navigation">
             {/* Quick Search Bar in Mobile Drawer */}
             <button
               onClick={() => {
@@ -552,7 +558,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
         )}
-      </nav>
     </header>
   );
 };

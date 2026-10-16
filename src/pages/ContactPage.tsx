@@ -31,7 +31,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     company: '',
     email: '',
     phone: '',
-    projectType: 'Civil Engineering',
+    projectType: 'Civil Construction',
     message: ''
   });
 
@@ -190,7 +190,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           company: '',
                           email: '',
                           phone: '',
-                          projectType: 'Civil Engineering',
+                          projectType: 'Civil Construction',
                           message: ''
                         });
                       }}
@@ -268,14 +268,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         onChange={(e) => setContactForm({ ...contactForm, projectType: e.target.value })}
                         className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 focus:bg-white transition"
                       >
-                        <option value="Civil Engineering">Civil Engineering (Roads, Bridges, Stormwater)</option>
-                        <option value="Building Construction">Building Construction (Commercial, Public, Institutional)</option>
-                        <option value="Fencing & Security Barriers">Fencing & Security Barriers</option>
-                        <option value="Electrical Engineering">Electrical Engineering (MV / LV)</option>
-                        <option value="Air Conditioning & Refrigeration">Air Conditioning & Refrigeration (HVAC)</option>
-                        <option value="Plant Hire">Plant & Equipment Hire</option>
-                        <option value="Surface Mining">Surface Mining Civils</option>
-                        <option value="Infrastructure Development">Integrated Turnkey Infrastructure</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="General Building">General Building</option>
+                        <option value="Plant Hire">Plant Hire</option>
+                        <option value="Civil Construction">Civil Construction (Roads, Bridges, Stormwater)</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Structural Construction">Structural Construction</option>
                         <option value="General Corporate Enquiry">General Corporate Correspondence</option>
                       </select>
                     </div>

@@ -63,14 +63,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestQuote }) =>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 pt-1 text-xs">
               {[
-                'Civil Engineering',
-                'Building Construction',
                 'Electrical Engineering',
-                'Air Conditioning & Refrigeration',
-                'Fencing & Security Barriers',
-                'Plant Hire Fleet',
-                'Surface Mining Infrastructure',
-                'Turnkey Infrastructure Development'
+                'General Building',
+                'Plant Hire',
+                'Civil Construction',
+                'Mechanical Engineering',
+                'Plumbing',
+                'Structural Construction'
               ].map((service, idx) => (
                 <li key={idx}>
                   <button

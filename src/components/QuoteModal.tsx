@@ -12,7 +12,7 @@ interface QuoteModalProps {
 export const QuoteModal: React.FC<QuoteModalProps> = ({
   isOpen,
   onClose,
-  defaultService = 'Civil Engineering',
+  defaultService = 'Civil Construction',
   defaultProjectRef = ''
 }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -174,14 +174,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                   className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 focus:bg-white transition"
                 >
-                  <option value="Civil Engineering">Civil Engineering (Roads, Bridges, Stormwater)</option>
-                  <option value="Building Construction">Building Construction (Commercial & Public)</option>
-                  <option value="Fencing & Security Barriers">Fencing & Security Barriers</option>
-                  <option value="Electrical Engineering">Electrical Engineering (MV / LV Reticulation)</option>
-                  <option value="Air Conditioning & Refrigeration">Air Conditioning & Refrigeration (HVAC)</option>
-                  <option value="Plant Hire">Plant & Equipment Hire</option>
-                  <option value="Surface Mining">Surface Mining Civils</option>
-                  <option value="Infrastructure Development">Integrated Infrastructure Development</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="General Building">General Building</option>
+                  <option value="Plant Hire">Plant Hire</option>
+                  <option value="Civil Construction">Civil Construction (Roads, Bridges, Stormwater)</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Plumbing">Plumbing</option>
+                  <option value="Structural Construction">Structural Construction</option>
                   <option value="Multi-disciplinary Turnkey">Multi-disciplinary Turnkey Package</option>
                 </select>
               </div>

@@ -42,7 +42,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {description && (
         <p className={`text-base sm:text-lg leading-[1.7] font-normal ${
-          dark ? 'text-neutral-400' : 'text-neutral-600'
+          dark ? 'text-white' : 'text-neutral-600'
         }`}>
           {description}
         </p>

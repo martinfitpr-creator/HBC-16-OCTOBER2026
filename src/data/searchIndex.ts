@@ -50,7 +50,7 @@ export const staticSearchItems: SearchResultItem[] = [
     id: 'page-services',
     title: 'Our Services',
     subtitle: 'Turnkey Infrastructure & Construction Capabilities',
-    description: 'Explore our 8 specialized engineering and construction divisions including Civil Engineering, Building, Electrical, Plant Hire, and Mining.',
+    description: 'Explore our seven divisions: Electrical Engineering, General Building, Plant Hire, Civil Construction, Mechanical Engineering, Plumbing, and Structural Construction.',
     category: 'pages',
     categoryLabel: 'Page',
     badge: 'Services',

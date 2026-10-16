@@ -2,51 +2,6 @@ import { ServiceItem } from '../types';
 
 export const servicesData: ServiceItem[] = [
   {
-    id: 'civil-engineering',
-    title: 'Civil Engineering',
-    shortDescription: 'Roads, bridges, stormwater infrastructure and civil works.',
-    detailedDescription: 'Comprehensive civil engineering capabilities handling complex municipal, provincial, and national infrastructure projects. Our civil engineering teams execute earthworks, structural concrete, bridge rehabilitation, bulk stormwater drainage, and arterial road construction under strict engineering oversight.',
-    iconName: 'Layers',
-    capabilities: [
-      'Bridge construction, rehabilitation and structural upgrades',
-      'Arterial, municipal and access road construction',
-      'Bulk stormwater management and hydraulic drainage networks',
-      'Bulk earthworks, terracing, cut-to-fill and soil stabilization',
-      'Water and sanitation reticulation pipelines'
-    ],
-    applicableStandards: ['COLTO Specifications', 'SANS 1200 / SANS 2001', 'CIDB Grade 9CE']
-  },
-  {
-    id: 'building-construction',
-    title: 'Building Construction',
-    shortDescription: 'Commercial, institutional, public-sector and industrial buildings.',
-    detailedDescription: 'Turnkey building solutions spanning civic infrastructure, correctional facilities, higher education lecture complexes, police stations, healthcare clinics, and commercial warehousing. We integrate structural frames, brickwork, roofing, finishes, and specialist trades into cohesive delivery.',
-    iconName: 'Building2',
-    capabilities: [
-      'Institutional, university and secondary education campuses',
-      'Public sector facilities (police stations, fire stations, civic offices)',
-      'Healthcare clinics and municipal medical centers',
-      'Industrial warehouses, distribution hubs and logistics facilities',
-      'High-security correctional and justice precinct construction'
-    ],
-    applicableStandards: ['National Building Regulations (NBR)', 'SANS 10400', 'CIDB Grade 9GB']
-  },
-  {
-    id: 'fencing-security',
-    title: 'Fencing & Security Barriers',
-    shortDescription: 'Perimeter security, fencing and associated infrastructure.',
-    detailedDescription: 'Specialist perimeter defense, high-security anti-climb fencing, concrete barrier systems, and access containment infrastructure engineered for high-security public precincts, correctional departments, municipal depots, and industrial sites.',
-    iconName: 'ShieldCheck',
-    capabilities: [
-      'High-security anti-cut and anti-climb clear-view fencing',
-      'Palisade, wire mesh and heavy-duty razor wire perimeter barriers',
-      'Concrete boundary walls and reinforced blast/impact barriers',
-      'Access control vehicle gates, turnstiles and security guardhouses',
-      'Perimeter earthworks and boundary alignment stabilization'
-    ],
-    applicableStandards: ['Department of Public Works Security Standards', 'SANS High Security Fencing']
-  },
-  {
     id: 'electrical-engineering',
     title: 'Electrical Engineering',
     shortDescription: 'Electrical infrastructure and project-related electrical works.',
@@ -62,19 +17,19 @@ export const servicesData: ServiceItem[] = [
     applicableStandards: ['SANS 10142-1 (Code of Practice)', 'Eskom Technical Specifications', 'CIDB 7EB / 7EP PE']
   },
   {
-    id: 'air-conditioning-refrigeration',
-    title: 'Air Conditioning & Refrigeration',
-    shortDescription: 'HVAC, air conditioning and refrigeration solutions.',
-    detailedDescription: 'Engineered climate control, industrial refrigeration, mechanical ventilation, and building management HVAC systems. We design, install, and commission heavy-duty air conditioning systems for commercial complexes, emergency services, and civic offices.',
-    iconName: 'Wind',
+    id: 'general-building',
+    title: 'General Building',
+    shortDescription: 'Commercial, institutional, public-sector and industrial buildings.',
+    detailedDescription: 'Turnkey building solutions spanning civic infrastructure, correctional facilities, higher education lecture complexes, police stations, healthcare clinics, and commercial warehousing. We integrate building structure, brickwork, roofing, finishes, and specialist trades into cohesive delivery.',
+    iconName: 'Building2',
     capabilities: [
-      'Central chiller plants and chilled water distribution circuits',
-      'VRV / VRF multi-zone air conditioning systems',
-      'Industrial cold storage, freezer rooms and commercial refrigeration',
-      'Fire-rated smoke extraction and fresh air ventilation ducting',
-      'Automated Building Management System (BMS) HVAC controls'
+      'Institutional, university and secondary education campuses',
+      'Public sector facilities (police stations, fire stations, civic offices)',
+      'Healthcare clinics and municipal medical centers',
+      'Industrial warehouses, distribution hubs and logistics facilities',
+      'High-security correctional and justice precinct construction'
     ],
-    applicableStandards: ['ASHRAE Standards', 'SANS 10173', 'CIDB 7ME PE Certified']
+    applicableStandards: ['National Building Regulations (NBR)', 'SANS 10400', 'CIDB Grade 9GB']
   },
   {
     id: 'plant-hire',
@@ -92,33 +47,63 @@ export const servicesData: ServiceItem[] = [
     applicableStandards: ['Driven Machinery Regulations (OHSA)', 'OEM Maintenance Protocols']
   },
   {
-    id: 'surface-mining',
-    title: 'Surface Mining',
-    shortDescription: 'Specialist construction and mining-related services.',
-    detailedDescription: 'Targeted opencast civil support, haul road construction and maintenance, tailings dam earthworks, storm diversion channels, and mine surface infrastructure designed to withstand harsh industrial and geological conditions.',
-    iconName: 'Pickaxe',
+    id: 'civil-construction',
+    title: 'Civil Construction',
+    shortDescription: 'Roads, bridges, earthworks and civil infrastructure.',
+    detailedDescription: 'Comprehensive civil construction capabilities for municipal, provincial, and national infrastructure projects. Our teams execute earthworks, bridge construction and rehabilitation, stormwater drainage, roadworks, and water infrastructure under strict engineering oversight.',
+    iconName: 'Layers',
     capabilities: [
-      'Mine haul road construction, dust suppression and routine grading',
-      'Surface stormwater diversion channels and containment paddocks',
-      'Run-of-Mine (ROM) pad construction and crushing plant civils',
-      'Topsoil stripping, bulk overburden handling and stockpile management',
-      'Mining infrastructure civil foundations and conveyor plinths'
+      'Bridge construction, rehabilitation and structural upgrades',
+      'Arterial, municipal and access road construction',
+      'Bulk stormwater management and hydraulic drainage networks',
+      'Bulk earthworks, terracing, cut-to-fill and soil stabilization',
+      'Water and sanitation reticulation pipelines'
     ],
-    applicableStandards: ['Mine Health and Safety Act (MHSA)', 'DMR Environmental Guidelines']
+    applicableStandards: ['COLTO Specifications', 'SANS 1200 / SANS 2001', 'CIDB Grade 9CE']
   },
   {
-    id: 'infrastructure-development',
-    title: 'Infrastructure Development',
-    shortDescription: 'Integrated infrastructure solutions for public and private-sector clients.',
-    detailedDescription: 'Full turnkey project lifecycle execution, aligning master planning, civil engineering, multidisciplinary construction, and community stakeholder liaison. We deliver essential public services, transport nodes, and economic corridors for South Africa.',
+    id: 'mechanical-engineering',
+    title: 'Mechanical Engineering',
+    shortDescription: 'Mechanical, HVAC, refrigeration and ventilation systems.',
+    detailedDescription: 'Mechanical engineering solutions for building and infrastructure projects, including HVAC, refrigeration, mechanical ventilation, plant rooms, and building services. Our teams install, integrate, and commission systems to meet project specifications.',
+    iconName: 'Settings',
+    capabilities: [
+      'Central chiller plants and chilled water distribution circuits',
+      'VRV / VRF multi-zone air conditioning systems',
+      'Industrial cold storage and commercial refrigeration',
+      'Fire-rated smoke extraction and fresh air ventilation ducting',
+      'Mechanical plant rooms and building management system integration'
+    ],
+    applicableStandards: ['ASHRAE Standards', 'SANS 10173', 'CIDB 7ME PE Certified']
+  },
+  {
+    id: 'plumbing',
+    title: 'Plumbing',
+    shortDescription: 'Water supply, drainage and plumbing systems for buildings.',
+    detailedDescription: 'Plumbing installation and maintenance for commercial, institutional, and public buildings. Work includes water supply, hot-water systems, sanitaryware, soil and waste drainage, and stormwater connections, coordinated with the wider building services.',
+    iconName: 'Wrench',
+    capabilities: [
+      'Cold and hot water supply pipework and distribution',
+      'Sanitaryware installation and fixture connections',
+      'Soil, waste and vent drainage systems',
+      'Stormwater connections and building drainage',
+      'Pressure testing, commissioning and plumbing repairs'
+    ],
+    applicableStandards: ['National Building Regulations (NBR)', 'SANS 10252', 'SANS 10254']
+  },
+  {
+    id: 'structural-construction',
+    title: 'Structural Construction',
+    shortDescription: 'Structural concrete, steelwork and building frameworks.',
+    detailedDescription: 'Structural construction for building and infrastructure projects, delivered to approved drawings and engineering specifications. Our work includes reinforced concrete, structural steel, foundations, retaining structures, and bridge components.',
     iconName: 'HardHat',
     capabilities: [
-      'Intermodal transport hubs, taxi ranks and commuter precincts',
-      'Urban regeneration and township revitalization programs',
-      'Bulk municipal water reservoir and sanitation infrastructure',
-      'Precinct electrical, stormwater, and road integrated packages',
-      'Public-Private Partnership (PPP) civil works turnkey execution'
+      'Reinforced concrete foundations, slabs, columns and beams',
+      'Structural steel fabrication and erection',
+      'Retaining walls and structural concrete works',
+      'Bridge decks, abutments and associated structures',
+      'Construction in accordance with approved structural drawings'
     ],
-    applicableStandards: ['CIDB Best Practice Standards', 'Municipal Infrastructure Grant (MIG) Specs']
+    applicableStandards: ['SANS 10100', 'SANS 10162', 'Approved project structural drawings']
   }
 ];

@@ -48,7 +48,7 @@ export const companyStatistics: StatisticItem[] = [
     subtext: 'Three decades of proven execution across civil, commercial and public works'
   },
   {
-    value: '8+',
+    value: '7',
     label: 'Core Service Areas',
     subtext: 'Multidisciplinary turnkey delivery from ground-breaking to handover'
   },

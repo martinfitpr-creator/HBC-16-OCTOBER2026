@@ -2,11 +2,8 @@ import React from 'react';
 import { 
   Layers, 
   Building2, 
-  ShieldCheck, 
   Zap, 
-  Wind, 
   Truck, 
-  Pickaxe, 
   HardHat, 
   ArrowRight,
   Settings,
@@ -27,16 +24,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) =
         return <Layers className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
       case 'Building2':
         return <Building2 className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
       case 'Zap':
         return <Zap className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
-      case 'Wind':
-        return <Wind className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
       case 'Truck':
         return <Truck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
-      case 'Pickaxe':
-        return <Pickaxe className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
       case 'Settings':
         return <Settings className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />;
       case 'Wrench':
@@ -88,4 +79,3 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) =
     </div>
   );
 };
-
