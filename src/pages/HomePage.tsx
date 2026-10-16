@@ -71,7 +71,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Hero Content Container */}
         <div className="home-hero__content relative z-10 mx-auto flex w-full max-w-7xl flex-1 translate-y-6 flex-col justify-center px-6 py-12 sm:translate-y-8 sm:py-16 lg:translate-y-12 lg:px-10 lg:py-20">
-          <div className="home-hero__copy mx-auto flex max-w-[850px] flex-col items-center text-center">
+          <div className="home-hero__copy mx-auto flex max-w-[850px] flex-col items-center text-center lg:max-w-[1100px]">
             {/* Eyebrow Header with Orange Line */}
             <div className="mb-5 flex items-center justify-center gap-4">
               <div className="h-px w-12 rounded-full bg-orange-500" aria-hidden="true" />
@@ -91,7 +91,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 aria-hidden="true"
               >
                 <h1
-                  className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white"
+                  className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[1100px] lg:text-[clamp(5rem,6vw,6rem)]"
                   style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
                 >
                   Building Infrastructure.<br />
@@ -115,7 +115,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   transition={{ duration: prefersReducedMotion ? 0 : 0.65, ease: 'easeInOut' }}
                 >
                   <h1
-                    className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white"
+                    className="max-w-[850px] text-[clamp(2.5rem,calc(5vw_+_16px),4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[1100px] lg:text-[clamp(5rem,6vw,6rem)]"
                     style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
                   >
                     {showAlternateHeroCopy ? (
