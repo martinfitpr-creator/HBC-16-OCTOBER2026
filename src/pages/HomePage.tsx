@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import heroConstructionImg from '../assets/images/hero-highway-bridge-optimized.jpg';
 import companyOverviewSunsetImage from '../assets/images/company-overview-sunset-cranes.jpg';
+import companyOverviewBackground from '../assets/images/company-overview-background.jpg';
 import { PageId, ProjectItem, ServiceItem } from '../types';
 import { servicesData } from '../data/servicesData';
 import { ServiceCard } from '../components/ServiceCard';
@@ -20,7 +21,7 @@ import { GeographicFootprint } from '../components/GeographicFootprint';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import { projectsData } from '../data/projectsData';
 import { AnimatedCounter } from '../components/AnimatedCounter';
-import servicesIntroBg from '../assets/images/services-intro-bridge.jpg';
+import featuredWorkBackground from '../assets/images/featured-work-background.jpg';
 
 const projectProvinceCount = new Set(projectsData.map((project) => project.province)).size;
 const featuredProjectIds = [
@@ -113,7 +114,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             height={1080}
             loading="eager"
             fetchPriority="high"
-            className="h-full w-full object-cover object-[38%_center]"
+            className="h-full w-full object-cover object-[38%_center] max-sm:object-[80%_center]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,15,20,0.9)_0%,rgba(10,15,20,0.76)_38%,rgba(10,15,20,0.38)_68%,rgba(10,15,20,0.12)_100%),linear-gradient(0deg,rgba(10,15,20,0.32)_0%,transparent_45%)] max-sm:bg-[linear-gradient(90deg,rgba(10,15,20,0.78)_0%,rgba(10,15,20,0.57)_62%,rgba(10,15,20,0.35)_100%),linear-gradient(0deg,rgba(10,15,20,0.65)_0%,transparent_55%)]" />
         </div>
@@ -311,11 +312,11 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="border-b border-neutral-200">
         <div className="relative isolate overflow-hidden bg-neutral-950 py-14 text-white sm:py-20 lg:py-24">
           <img
-            src={servicesIntroBg}
+            src={companyOverviewBackground}
             alt=""
             aria-hidden="true"
             loading="lazy"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_58%]"
           />
           <div className="absolute inset-0 -z-10 bg-neutral-950/65" aria-hidden="true" />
           <motion.div className="relative mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:mb-2 sm:flex-row sm:items-end sm:px-6 lg:px-8" {...scrollRevealProps}>
@@ -357,30 +358,40 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      <section className="border-b border-neutral-200 bg-neutral-50 py-14 sm:py-20" aria-label="Projects and Case Studies">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div className="mb-8 flex flex-col items-start justify-between gap-5 sm:mb-10 sm:flex-row sm:items-end" {...scrollRevealProps}>
+      <section className="border-b border-neutral-200 bg-neutral-50" aria-label="Projects and Case Studies">
+        <div className="relative isolate overflow-hidden bg-neutral-950 py-14 text-white sm:py-20">
+          <img
+            src={featuredWorkBackground}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-neutral-950/60" aria-hidden="true" />
+          <motion.div className="relative mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-5 px-4 sm:flex-row sm:items-end sm:px-6 lg:px-8" {...scrollRevealProps}>
             <div className="max-w-[680px] space-y-3">
-              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-600 sm:text-sm">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-orange-600" />
+              <div className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-400 sm:text-sm">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-orange-500" />
                 <span>Featured Work</span>
               </div>
-              <h2 className="text-[clamp(2rem,5vw,2.875rem)] font-bold leading-[1.08] tracking-tight text-neutral-900">
+              <h2 className="text-[clamp(2rem,5vw,2.875rem)] font-bold leading-[1.08] tracking-tight text-white">
                 Projects and Case Studies
               </h2>
-              <p className="max-w-[620px] text-sm leading-relaxed text-neutral-600 sm:text-base">
+              <p className="max-w-[620px] text-sm leading-relaxed text-white/90 sm:text-base">
                 Explore selected infrastructure, construction, and public-sector projects delivered by HBC Construction.
               </p>
             </div>
             <button
               onClick={() => onNavigate('projects')}
-              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-neutral-300 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-neutral-800 transition hover:border-orange-500 hover:text-orange-700"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/70 bg-neutral-950/35 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm transition hover:border-white hover:bg-neutral-950/60"
             >
               <span>View All Projects</span>
-              <ArrowRight className="h-4 w-4 text-orange-600" />
+              <ArrowRight className="h-4 w-4 text-orange-400" />
             </button>
           </motion.div>
+        </div>
 
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <motion.div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6" {...scrollRevealProps}>
             {featuredProjects.map((project, index) => (
               <ProjectCard

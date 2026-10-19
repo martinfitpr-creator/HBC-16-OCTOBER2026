@@ -8,7 +8,7 @@ import tshwaneLogo from '../assets/clients/city-of-tshwane.png';
 import dbsaLogo from '../assets/clients/dbsa.png';
 import udTrucksLogo from '../assets/clients/ud-trucks.svg';
 import jraLogo from '../assets/clients/jra.jpg';
-import clientsIntroBg from '../assets/images/projects-intro-ud-trucks.jpg';
+import clientsIntroBg from '../assets/images/clients-roadworks-background.jpg';
 import './SomeOfOurClients.css';
 
 export interface ClientItem {
