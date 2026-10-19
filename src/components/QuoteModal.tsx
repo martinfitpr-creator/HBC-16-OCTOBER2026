@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, Send, Phone, Mail, ShieldAlert, Building2 } from 'lucide-react';
+import { X, CheckCircle2, Send, Phone, Mail, ShieldAlert, Building2, AlertCircle } from 'lucide-react';
 import { companyDetails } from '../data/companyData';
+import { FileAttachmentField } from './FileAttachmentField';
+import { submitEnquiry } from '../utils/submitEnquiry';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -16,6 +18,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   defaultProjectRef = ''
 }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -40,9 +44,19 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+    setFormError('');
+    try {
+      await submitEnquiry(form, 'quote');
+      setSubmitted(true);
+    } catch (error) {
+      setFormError(error instanceof Error ? error.message : 'The enquiry could not be sent. Please contact HBC directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -84,7 +98,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             </div>
             <h4 className="text-2xl font-bold text-neutral-900">Enquiry Successfully Logged</h4>
             <p className="text-neutral-600 max-w-md mx-auto text-sm leading-relaxed">
-              Thank you, <span className="font-semibold text-neutral-900">{formData.name}</span>. Our estimating and engineering team at HBC Construction has received your project briefing. We will review the specifications and contact you at <span className="font-semibold text-neutral-900">{formData.email}</span>.
+              Thank you, <span className="font-semibold text-neutral-900">{formData.name}</span>. Your project briefing was sent successfully. Our estimating and engineering team will review the specifications and contact you at <span className="font-semibold text-neutral-900">{formData.email}</span>.
             </p>
 
             <div className="bg-neutral-50 rounded-lg p-4 border border-neutral-200 text-left text-xs text-neutral-600 max-w-md mx-auto space-y-1">
@@ -107,13 +121,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-5">
+          <form onSubmit={handleSubmit} encType="multipart/form-data" className="p-6 md:p-8 space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-neutral-700 mb-1">
                   Full Name <span className="text-red-600">*</span>
                 </label>
                 <input
+                  name="name"
                   type="text"
                   required
                   placeholder="e.g. Sipho Ndlovu"
@@ -128,6 +143,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   Company / Organization <span className="text-red-600">*</span>
                 </label>
                 <input
+                  name="company"
                   type="text"
                   required
                   placeholder="e.g. Department of Infrastructure / Private Ltd"
@@ -142,6 +158,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   Email Address <span className="text-red-600">*</span>
                 </label>
                 <input
+                  name="email"
                   type="email"
                   required
                   placeholder="name@organization.co.za"
@@ -156,6 +173,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   Contact Telephone / Mobile <span className="text-red-600">*</span>
                 </label>
                 <input
+                  name="phone"
                   type="tel"
                   required
                   placeholder="e.g. 011 314 4737 / 082 853 2960"
@@ -170,6 +188,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   Primary Discipline / Service <span className="text-red-600">*</span>
                 </label>
                 <select
+                  name="serviceType"
                   value={formData.serviceType}
                   onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                   className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 focus:bg-white transition"
@@ -190,6 +209,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   Project Location (City / Province)
                 </label>
                 <input
+                  name="projectLocation"
                   type="text"
                   placeholder="e.g. Midrand, Gauteng / Eastern Cape"
                   value={formData.projectLocation}
@@ -204,6 +224,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 Project Scope & Requirements Description <span className="text-red-600">*</span>
               </label>
               <textarea
+                name="projectScope"
                 rows={4}
                 required
                 placeholder="Please outline the tender or project scope, estimated bill of quantities, key milestones or site specifics..."
@@ -213,6 +234,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               />
             </div>
 
+            <FileAttachmentField id="quote-attachments" />
+            {formError && (
+              <div role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>{formError} Contact us at <a className="font-semibold underline" href={`mailto:${companyDetails.email}`}>{companyDetails.email}</a> or <a className="font-semibold underline" href={`tel:${companyDetails.telephone.replace(/[^\d+]/g, '')}`}>{companyDetails.telephone}</a>.</span>
+              </div>
+            )}
             <div className="flex items-center justify-between pt-2 border-t border-neutral-200">
               <div className="text-xs text-neutral-500 flex items-center gap-1.5">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -228,10 +256,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold rounded-lg shadow-sm hover:shadow transition transform active:scale-98"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold rounded-lg shadow-sm hover:shadow transition transform active:scale-98 disabled:cursor-wait disabled:opacity-60"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Submit Tender Enquiry</span>
+                  <span>{isSubmitting ? 'Sending…' : 'Submit Tender Enquiry'}</span>
                 </button>
               </div>
             </div>

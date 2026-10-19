@@ -121,17 +121,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         {/* Hero Content Container */}
         <div className="home-hero__content relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="home-hero__copy flex w-full max-w-[680px] flex-col items-center text-center sm:items-start sm:text-left">
-            <div className="invisible mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4" aria-hidden="true">
+            <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4">
               <div className="h-px w-8 rounded-full bg-orange-500 sm:w-12" aria-hidden="true" />
               <span
-                className="text-[11px] font-semibold tracking-[0.12em] text-orange-400 uppercase sm:text-sm"
+                className="text-[11px] font-semibold tracking-[0.12em] text-orange-400 uppercase sm:text-sm min-[1000px]:text-orange-500"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 HBC CONSTRUCTION
               </span>
-              <div className="h-px w-8 rounded-full bg-orange-500 sm:w-12" aria-hidden="true" />
             </div>
-            <div className="grid h-[240px] sm:h-[320px] lg:h-[278px]">
+            <div className="grid h-[240px] sm:h-[320px] lg:h-[200px]">
               {heroMessages.map((message) => (
                 <div
                   key={message.title}
@@ -140,14 +139,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                   aria-hidden="true"
                 >
                   <h1
-                    className="w-full max-w-[680px] text-[clamp(2rem,8.5vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:text-[clamp(3.25rem,4.25vw,3.9rem)]"
+                    className="w-full max-w-[680px] text-[clamp(2rem,8.5vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[780px] lg:text-[clamp(2.5rem,4.1vw,3.5rem)]"
                     style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
                   >
                     {message.title}<br />
-                    <span className="text-orange-400">{message.highlight}</span>
+                    <span className="text-orange-400 min-[1000px]:whitespace-nowrap min-[1000px]:text-orange-500">{message.highlight}</span>
                   </h1>
                   <p
-                    className="w-full max-w-[600px] text-pretty text-[clamp(1rem,1.3vw,1.2rem)] font-normal leading-relaxed text-white/90 min-[1000px]:text-xl"
+                    className="w-full max-w-[600px] text-pretty text-[clamp(1rem,1.3vw,1.2rem)] font-normal leading-relaxed text-white/90 min-[1000px]:max-w-[540px] min-[1000px]:text-base"
                     style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
                   >
                     {message.subtitle}
@@ -157,7 +156,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <AnimatePresence initial={false} mode="sync">
                 <motion.div
                   key={activeHeroMessage}
-                  className="relative top-6 flex w-full flex-col items-center gap-4 text-center sm:items-start sm:gap-5 sm:text-left"
+                  className="relative top-6 flex w-full flex-col items-center gap-4 text-center sm:items-start sm:gap-5 sm:text-left min-[1000px]:top-0"
                   style={{ gridArea: '1 / 1' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -165,15 +164,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                   transition={{ duration: prefersReducedMotion ? 0 : 0.65, ease: 'easeInOut' }}
                 >
                   <h1
-                    className="w-full max-w-[680px] text-[clamp(2rem,8.5vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:text-[clamp(3.25rem,4.25vw,3.9rem)]"
+                    className="w-full max-w-[680px] text-[clamp(2rem,8.5vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-white lg:max-w-[780px] lg:text-[clamp(2.5rem,4.1vw,3.5rem)]"
                     style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800 }}
                   >
                     {currentHeroMessage.title}<br />
-                    <span className="text-orange-400">{currentHeroMessage.highlight}</span>
+                    <span className="text-orange-400 min-[1000px]:whitespace-nowrap min-[1000px]:text-orange-500">{currentHeroMessage.highlight}</span>
                   </h1>
 
                   <p
-                    className="w-full max-w-[600px] text-pretty text-[clamp(1rem,1.3vw,1.2rem)] font-normal leading-relaxed text-white/90 min-[1000px]:text-xl"
+                    className="w-full max-w-[600px] text-pretty text-[clamp(1rem,1.3vw,1.2rem)] font-normal leading-relaxed text-white/90 min-[1000px]:max-w-[540px] min-[1000px]:text-base"
                     style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
                   >
                     {currentHeroMessage.subtitle}
@@ -182,7 +181,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </AnimatePresence>
             </div>
 
-            <div className="mx-auto mt-6 grid w-full max-w-[520px] grid-cols-1 gap-2.5 sm:mx-0 sm:mt-8 sm:grid-cols-2 sm:gap-3">
+            <div className="mx-auto mt-6 grid w-full max-w-[520px] grid-cols-1 gap-2.5 sm:mx-0 sm:mt-8 sm:grid-cols-2 sm:gap-3 min-[1000px]:mt-5 min-[1000px]:max-w-[440px]">
               <button
                 onClick={() => onNavigate('contact')}
                 className="group inline-flex h-11 min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-orange-600 px-2 text-sm font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-orange-500 active:scale-[0.98] sm:h-12 sm:min-h-12 sm:px-5 sm:text-base"
@@ -269,7 +268,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <span>Quality & Safety First</span>
                 </div>
                 <p className="text-xs leading-relaxed text-neutral-600 sm:text-sm">
-                  Zero-harm safety policy and rigorous quality assurance systems aligned with ISO 9001 standards.
+                  Zero-harm safety policy and rigorous quality assurance systems across our projects.
                 </p>
               </div>
 

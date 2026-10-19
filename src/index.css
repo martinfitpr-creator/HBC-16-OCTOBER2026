@@ -3,10 +3,18 @@
 @theme {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Manrope', sans-serif;
-  --color-hbc-red: #C41E0A;
-  --color-hbc-red-dark: #8F1405;
-  --color-hbc-orange: #F28C1E;
+  --color-hbc-orange: #EA580C;
+  --color-hbc-red: var(--color-hbc-orange);
+  --color-hbc-red-dark: var(--color-hbc-orange);
   --color-hbc-yellow: #FFC20E;
+  --color-orange-300: var(--color-hbc-orange);
+  --color-orange-400: var(--color-hbc-orange);
+  --color-orange-500: var(--color-hbc-orange);
+  --color-orange-600: var(--color-hbc-orange);
+  --color-orange-700: var(--color-hbc-orange);
+  --color-orange-800: var(--color-hbc-orange);
+  --color-orange-900: var(--color-hbc-orange);
+  --color-orange-950: var(--color-hbc-orange);
   --color-charcoal: #12100F;
   --color-charcoal-2: #1C1917;
   --color-warm-grey: #6F6360;

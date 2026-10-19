@@ -7,6 +7,7 @@ import {
   Globe, 
   Send, 
   CheckCircle2, 
+  AlertCircle,
   Building2, 
   Clock, 
   ExternalLink,
@@ -15,6 +16,8 @@ import {
 import { PageId } from '../types';
 import { companyDetails } from '../data/companyData';
 import { SectionHeader } from '../components/SectionHeader';
+import { FileAttachmentField } from '../components/FileAttachmentField';
+import { submitEnquiry } from '../utils/submitEnquiry';
 import contactHeroBg from '../assets/images/ud-trucks-warehouse.jpg';
 
 const whatsappNumber = `27${companyDetails.mobile.replace(/\D/g, '').replace(/^0/, '')}`;
@@ -30,6 +33,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   onRequestQuote
 }) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   const [contactForm, setContactForm] = useState({
     name: '',
     company: '',
@@ -39,9 +44,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+    setFormError('');
+    try {
+      await submitEnquiry(form, 'contact');
+      setFormSubmitted(true);
+    } catch (error) {
+      setFormError(error instanceof Error ? error.message : 'The enquiry could not be sent. Please contact HBC directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -203,7 +218,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </div>
                     <h4 className="text-xl font-bold text-neutral-900">Enquiry Submitted Successfully</h4>
                     <p className="text-xs sm:text-sm text-neutral-600 max-w-md mx-auto leading-relaxed">
-                      Thank you for contacting HBC Construction. Your enquiry regarding <span className="font-semibold text-neutral-900">{contactForm.projectType}</span> has been logged with our Midrand Head Office desk. We will reach out to you at <span className="font-semibold text-neutral-900">{contactForm.email}</span>.
+                      Thank you for contacting HBC Construction. Your enquiry regarding <span className="font-semibold text-neutral-900">{contactForm.projectType}</span> has been sent successfully. We will reach out to you at <span className="font-semibold text-neutral-900">{contactForm.email}</span>.
                     </p>
                     <button
                       onClick={() => {
@@ -223,13 +238,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-neutral-700 mb-1">
                           Full Name <span className="text-red-600">*</span>
                         </label>
                         <input
+                          name="name"
                           type="text"
                           required
                           placeholder="Your Name"
@@ -244,6 +260,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           Company / Department <span className="text-red-600">*</span>
                         </label>
                         <input
+                          name="company"
                           type="text"
                           required
                           placeholder="Your Organization"
@@ -258,6 +275,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           Email Address <span className="text-red-600">*</span>
                         </label>
                         <input
+                          name="email"
                           type="email"
                           required
                           placeholder="name@domain.co.za"
@@ -272,6 +290,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           Phone Number <span className="text-red-600">*</span>
                         </label>
                         <input
+                          name="phone"
                           type="tel"
                           required
                           placeholder="011 314 4737 / 082..."
@@ -287,6 +306,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         Project Type <span className="text-red-600">*</span>
                       </label>
                       <select
+                        name="projectType"
                         value={contactForm.projectType}
                         onChange={(e) => setContactForm({ ...contactForm, projectType: e.target.value })}
                         className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 focus:bg-white transition"
@@ -307,6 +327,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         Message / Project Brief <span className="text-red-600">*</span>
                       </label>
                       <textarea
+                        name="message"
                         rows={5}
                         required
                         placeholder="Please describe your tender details, scope requirements, location and timelines..."
@@ -316,12 +337,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       />
                     </div>
 
+                    <FileAttachmentField id="contact-attachments" />
+                    {formError && (
+                      <div role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+                        <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                        <span>{formError} Contact us at <a className="font-semibold underline" href={`mailto:${companyDetails.email}`}>{companyDetails.email}</a> or <a className="font-semibold underline" href={`tel:${companyDetails.telephone.replace(/[^\d+]/g, '')}`}>{companyDetails.telephone}</a>.</span>
+                      </div>
+                    )}
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-50 hover:text-orange-700 font-bold text-sm rounded-lg shadow-sm transition transform active:scale-98 group"
                     >
                       <Send className="w-4 h-4 text-orange-600 group-hover:translate-x-0.5 transition-transform" />
-                      <span>Submit Enquiry</span>
+                      <span>{isSubmitting ? 'Sending…' : 'Submit Enquiry'}</span>
                     </button>
                   </form>
                 )}

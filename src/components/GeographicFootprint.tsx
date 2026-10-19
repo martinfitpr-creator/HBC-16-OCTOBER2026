@@ -412,7 +412,7 @@ export const GeographicFootprint: React.FC<GeographicFootprintProps> = ({
                       {/* Gauteng (HEAD OFFICE & MAJOR INFRASTRUCTURE) */}
                       <path
                         d="M260,140 L305,130 L315,165 L275,175 Z"
-                        fill={selectedRegion === 'gauteng' ? '#C2410C' : '#EA580C'}
+                        fill="#EA580C"
                         stroke="#FFFFFF"
                         strokeWidth="2"
                         onClick={() => setSelectedRegion('gauteng')}
