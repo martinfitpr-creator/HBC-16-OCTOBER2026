@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowUpRight, CalendarDays, Images } from 'lucide-react';
 import { ProjectItem } from '../types';
 
 interface ProjectCardProps {
@@ -19,11 +19,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
           onClick();
         }
       }}
-      className="group relative flex flex-col bg-white rounded-xl border border-neutral-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-orange-500/40 active:scale-[0.99]"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-xl active:scale-[0.99]"
     >
       {/* Image Container - only rendered if project has a picture */}
       {project.imageUrl && (
-        <div className="relative h-48 sm:h-64 w-full bg-neutral-900 overflow-hidden">
+        <div className="relative h-28 w-full overflow-hidden bg-neutral-900 sm:h-48 lg:h-56">
           <img
             src={project.imageUrl}
             alt={project.name}
@@ -43,11 +43,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
       )}
 
       {/* Content Section */}
-      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+      <div className="flex flex-1 flex-col justify-between space-y-3 p-3 sm:space-y-4 sm:p-5">
         <div>
-          <div className="flex items-center justify-between gap-2 mb-1.5">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500 uppercase tracking-wider min-w-0">
-              <MapPin className="w-3.5 h-3.5 text-orange-600 flex-shrink-0" />
+          <div className="mb-1.5 flex items-center justify-between gap-2">
+            <div className="flex min-w-0 items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-neutral-500 sm:text-xs">
+              <MapPin className="h-3.5 w-3.5 flex-shrink-0 text-orange-600" />
               <span className="truncate">{project.location}</span>
             </div>
             {!project.imageUrl && (
@@ -57,17 +57,37 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
             )}
           </div>
 
-          <h3 className="font-extrabold text-neutral-900 text-lg leading-snug group-hover:text-orange-600 transition-colors">
+          <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold text-neutral-500 sm:gap-x-4 sm:text-[11px]">
+            {project.categoryLabel && (
+              <span className="rounded-full bg-orange-50 px-2 py-1 text-[9px] font-bold uppercase leading-none tracking-wide text-orange-700 sm:text-[10px]">
+                {project.categoryLabel}
+              </span>
+            )}
+            {project.completionPeriod && (
+              <span className="inline-flex items-center gap-1.5">
+                <CalendarDays className="h-3.5 w-3.5 text-orange-600" />
+                {project.completionPeriod}
+              </span>
+            )}
+            {project.galleryUrls && project.galleryUrls.length > 1 && (
+              <span className="inline-flex items-center gap-1.5">
+                <Images className="h-3.5 w-3.5 text-orange-600" />
+                {project.galleryUrls.length} project photos
+              </span>
+            )}
+          </div>
+
+          <h3 className="text-sm font-extrabold leading-snug text-neutral-900 transition-colors group-hover:text-orange-600 sm:text-lg">
             {project.name}
           </h3>
 
           {project.subtitle && (
-            <p className="text-xs text-neutral-600 mt-1 font-medium line-clamp-1">
+            <p className="mt-1 line-clamp-1 text-[11px] font-medium text-neutral-600 sm:text-xs">
               {project.subtitle}
             </p>
           )}
 
-          <p className="text-neutral-600 text-xs mt-2.5 line-clamp-2 leading-relaxed">
+          <p className="mt-2.5 line-clamp-2 text-[11px] leading-relaxed text-neutral-600 sm:text-xs">
             {project.description}
           </p>
         </div>

@@ -3,12 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 interface AnimatedCounterProps {
   value: number;
   suffix?: string;
+  displayValue?: string;
   label: string;
 }
 
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   value,
   suffix = '',
+  displayValue,
   label
 }) => {
   const counterRef = useRef<HTMLDivElement>(null);
@@ -17,6 +19,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   useEffect(() => {
     const element = counterRef.current;
     if (!element) return;
+    if (displayValue) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
@@ -50,17 +53,17 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       observer.disconnect();
       window.cancelAnimationFrame(animationFrame);
     };
-  }, [value]);
+  }, [displayValue, value]);
 
   return (
     <div
       ref={counterRef}
-      className="rounded-xl border-2 border-neutral-300 bg-white px-4 py-5 text-center shadow-[0_4px_12px_rgba(0,0,0,0.18)] sm:px-6 sm:py-6"
+      className="rounded-lg border border-neutral-200 bg-white px-3 py-4 text-center sm:px-5 sm:py-5"
       role="group"
-      aria-label={`${value}${suffix} ${label}`}
+      aria-label={`${displayValue ?? `${value}${suffix}`} ${label}`}
     >
-      <div aria-hidden="true" className="text-3xl font-extrabold tabular-nums text-orange-600 sm:text-4xl">
-        {count}{suffix}
+      <div aria-hidden="true" className="text-2xl font-extrabold tabular-nums text-orange-600 sm:text-3xl">
+        {displayValue ?? `${count}${suffix}`}
       </div>
       <div className="mt-2 text-xs font-semibold leading-snug text-neutral-700 sm:text-sm">
         {label}

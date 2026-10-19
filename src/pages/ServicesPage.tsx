@@ -10,7 +10,8 @@ import {
   FileCheck,
   Phone,
   Settings,
-  Wrench
+  Wrench,
+  House
 } from 'lucide-react';
 import { PageId, ServiceItem } from '../types';
 import { servicesData } from '../data/servicesData';
@@ -100,6 +101,56 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
               HBC Construction (Pty) Ltd operates across seven specialized divisions, offering unified management, robust capital resources, and technical engineering delivery under South African standards.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-18 bg-white border-b border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Built around your project"
+            title="Construction for every stage"
+            description="From new homes and commercial facilities to carefully managed refurbishments, our teams bring the right expertise to every build."
+          />
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                title: 'Residential',
+                description: 'Thoughtful construction and upgrades for homes, accommodation, and community living spaces.',
+                icon: <House className="w-6 h-6" />
+              },
+              {
+                title: 'Commercial',
+                description: 'Practical, durable buildings for businesses, public services, and institutional clients.',
+                icon: <Building2 className="w-6 h-6" />
+              },
+              {
+                title: 'Renovation',
+                description: 'Modernisation, refurbishment, and structural improvements that give existing spaces a new lease on life.',
+                icon: <Wrench className="w-6 h-6" />
+              }
+            ].map((service) => (
+              <article
+                key={service.title}
+                className="group flex flex-col items-start rounded-2xl border border-neutral-200 bg-neutral-50 p-6 sm:p-7 transition hover:-translate-y-1 hover:border-orange-300 hover:bg-white hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white">
+                  {service.icon}
+                </div>
+                <h2 className="mt-5 text-xl font-extrabold text-neutral-900">{service.title}</h2>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">{service.description}</p>
+                <button
+                  onClick={() => {
+                    setActiveServiceId('general-building');
+                    document.getElementById('services-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-orange-700 transition hover:text-orange-800"
+                >
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
+              </article>
+            ))}
           </div>
         </div>
       </section>

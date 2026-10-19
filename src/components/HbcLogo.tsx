@@ -15,8 +15,8 @@ export const HbcLogo: React.FC<HbcLogoProps> = ({
       <img
         src={hbcLogoImg}
         alt="HBC Construction Logo"
-        className="h-full w-auto object-contain max-w-[140px] sm:max-w-[190px]"
-        style={{ maxHeight: '100%', maxWidth: '150px', width: 'auto', objectFit: 'contain' }}
+        className="h-full w-auto max-w-[150px] object-contain sm:max-w-[230px]"
+        style={{ maxHeight: '100%', maxWidth: '230px', width: 'auto', objectFit: 'contain' }}
       />
     </div>
   );

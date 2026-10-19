@@ -11,6 +11,7 @@ import { HomePage } from './pages/HomePage';
 const AboutPage = lazy(() => import('./pages/AboutPage').then(({ AboutPage }) => ({ default: AboutPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then(({ ServicesPage }) => ({ default: ServicesPage })));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(({ ProjectsPage }) => ({ default: ProjectsPage })));
+const CareersPage = lazy(() => import('./pages/CareersPage').then(({ CareersPage }) => ({ default: CareersPage })));
 const CapabilitiesPage = lazy(() => import('./pages/CapabilitiesPage').then(({ CapabilitiesPage }) => ({ default: CapabilitiesPage })));
 const QualitySafetyPage = lazy(() => import('./pages/QualitySafetyPage').then(({ QualitySafetyPage }) => ({ default: QualitySafetyPage })));
 const SocialResponsibilityPage = lazy(() => import('./pages/SocialResponsibilityPage').then(({ SocialResponsibilityPage }) => ({ default: SocialResponsibilityPage })));
@@ -25,6 +26,7 @@ const validPageIds: PageId[] = [
   'about',
   'services',
   'projects',
+  'careers',
   'capabilities',
   'quality-safety',
   'social-responsibility',
@@ -107,7 +109,6 @@ export default function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={navigateTo}
-        onRequestQuote={() => handleOpenQuote()}
         onOpenSearch={() => setIsSearchOpen(true)}
         onSelectService={handleSelectService}
       />
@@ -154,6 +155,10 @@ export default function App() {
                   onSelectProject={handleSelectProject}
                   onRequestQuote={() => handleOpenQuote()}
                 />
+              )}
+
+              {currentPage === 'careers' && (
+                <CareersPage onNavigate={navigateTo} />
               )}
 
               {currentPage === 'capabilities' && (
@@ -236,7 +241,6 @@ export default function App() {
         </Suspense>
       )}
 
-      {/* Floating WhatsApp Green Widget */}
       <WhatsAppWidget phoneNumber="082 853 2960" companyName="HBC Construction (Pty) Ltd" />
     </div>
   );

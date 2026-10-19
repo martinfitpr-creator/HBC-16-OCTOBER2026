@@ -14,7 +14,6 @@ import { servicesData } from '../data/servicesData';
 interface NavbarProps {
   currentPage: PageId;
   onNavigate: (page: PageId) => void;
-  onRequestQuote?: () => void;
   onOpenSearch?: () => void;
   onSelectService?: (service: ServiceItem) => void;
 }
@@ -27,7 +26,6 @@ interface CompanySubItem {
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage,
   onNavigate,
-  onRequestQuote,
   onOpenSearch,
   onSelectService
 }) => {
@@ -68,6 +66,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const isCompanyActive = ['capabilities', 'quality-safety', 'social-responsibility'].includes(currentPage);
   const isServicesActive = currentPage === 'services';
+  const isHomeHero = currentPage === 'home' && !isScrolled && !mobileMenuOpen;
+  const desktopLinkClass = (active: boolean) => `relative px-2 xl:px-2.5 py-2 text-[13px] xl:text-[14px] font-bold transition-colors duration-200 rounded-md ${
+    active
+      ? 'text-orange-500'
+      : isHomeHero
+        ? 'text-white hover:text-orange-400 hover:bg-white/10'
+        : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
+  }`;
 
   const handleNavClick = (pageId: PageId) => {
     onNavigate(pageId);
@@ -127,30 +133,28 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav className={`h-20 w-full transition-all duration-300 ${
         mobileMenuOpen
         ? 'bg-white border-b border-neutral-200'
+        : isHomeHero
+        ? 'bg-white border-b border-neutral-200 min-[1000px]:border-b-0 min-[1000px]:bg-transparent'
         : isScrolled
         ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/90'
         : 'bg-white border-b border-neutral-200'
       }`}>
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-6 lg:px-10">
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('home')}
             className="flex items-center text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 rounded-md cursor-pointer"
             aria-label="HBC Construction Home"
           >
-            <HbcLogo variant="dark" className="h-[52px] transition-all duration-300" />
+            <HbcLogo variant="dark" className="h-[58px] transition-all duration-300 sm:h-[70px]" />
           </button>
 
           {/* Desktop Navigation Links & Search Magnifier */}
-          <div className="hidden min-[1000px]:flex items-center gap-8">
+          <div className="hidden min-[1000px]:flex items-center gap-2 xl:gap-4">
             {/* 1. Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                currentPage === 'home' 
-                  ? 'text-orange-600 font-bold' 
-                  : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-              }`}
+              className={desktopLinkClass(currentPage === 'home')}
             >
               Home
               {currentPage === 'home' && (
@@ -161,11 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 2. About Us */}
             <button
               onClick={() => handleNavClick('about')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                currentPage === 'about' 
-                  ? 'text-orange-600 font-bold' 
-                  : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-              }`}
+              className={desktopLinkClass(currentPage === 'about')}
             >
               About Us
               {currentPage === 'about' && (
@@ -181,11 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <button
                 onClick={() => handleNavClick('services')}
-                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                  isServicesActive || servicesDropdownOpen
-                    ? 'text-orange-600 font-bold' 
-                    : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-                }`}
+                className={`${desktopLinkClass(isServicesActive || servicesDropdownOpen)} inline-flex items-center gap-1.5`}
                 aria-expanded={servicesDropdownOpen}
                 aria-haspopup="true"
               >
@@ -229,11 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* 4. Projects */}
             <button
               onClick={() => handleNavClick('projects')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                currentPage === 'projects' 
-                  ? 'text-orange-600 font-bold' 
-                  : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-              }`}
+              className={desktopLinkClass(currentPage === 'projects')}
             >
               Projects
               {currentPage === 'projects' && (
@@ -249,11 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <button
                 onClick={() => handleNavClick('capabilities')}
-                className={`relative inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                  isCompanyActive || companyDropdownOpen
-                    ? 'text-orange-600 font-bold' 
-                    : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-                }`}
+                className={`${desktopLinkClass(isCompanyActive || companyDropdownOpen)} inline-flex items-center gap-1.5`}
                 aria-expanded={companyDropdownOpen}
                 aria-haspopup="true"
               >
@@ -303,14 +291,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* 6. Contact */}
+            {/* Careers */}
+            <button
+              onClick={() => handleNavClick('careers')}
+              className={desktopLinkClass(currentPage === 'careers')}
+            >
+              Careers
+              {currentPage === 'careers' && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-600 rounded-full" />
+              )}
+            </button>
+
+            {/* Contact */}
             <button
               onClick={() => handleNavClick('contact')}
-              className={`relative px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-bold transition-colors duration-200 rounded-md ${
-                currentPage === 'contact' 
-                  ? 'text-orange-600 font-bold' 
-                  : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
-              }`}
+              className={desktopLinkClass(currentPage === 'contact')}
             >
               Contact
               {currentPage === 'contact' && (
@@ -318,14 +313,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Search icon */}
             <button
-              onClick={onOpenSearch}
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-neutral-600 hover:text-orange-600 hover:bg-orange-50/70 transition group focus:outline-none focus:ring-2 focus:ring-orange-600 cursor-pointer"
+              onClick={() => onOpenSearch?.()}
+              className={`inline-flex h-10 items-center gap-2 rounded-lg border px-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-orange-600 ${
+                isHomeHero
+                  ? 'border-white/30 bg-white/10 text-white hover:border-orange-400/60 hover:bg-white/20'
+                  : 'border-neutral-200 bg-white text-neutral-700 hover:border-orange-200 hover:bg-orange-50 hover:text-orange-700'
+              }`}
               title="Search website"
               aria-label="Search website"
             >
-              <Search className="w-5 h-5 text-neutral-600 group-hover:text-orange-600 transition-colors" />
+              <Search className="h-[18px] w-[18px] text-orange-500" />
+              <span>Search</span>
             </button>
 
           </div>
@@ -333,12 +332,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Right Controls: Search Magnifier & Hamburger */}
           <div className="flex min-[1000px]:hidden items-center gap-1 sm:gap-1.5">
             <button
-              onClick={onOpenSearch}
-              className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-neutral-700 hover:text-orange-600 hover:bg-neutral-100 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-orange-600 cursor-pointer active:scale-95"
+              onClick={() => onOpenSearch?.()}
+              className="flex h-11 min-h-11 w-11 min-w-11 items-center justify-center rounded-lg border border-neutral-200 bg-white text-neutral-700 transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600 active:scale-95"
               aria-label="Search website"
               title="Search website"
             >
-              <Search className="w-5 h-5 text-neutral-700" />
+              <Search className="h-5 w-5" />
             </button>
 
             <button
@@ -520,7 +519,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 )}
               </div>
 
-              {/* 6. Contact */}
+              {/* Careers */}
+              <button
+                onClick={() => handleNavClick('careers')}
+                className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
+                  currentPage === 'careers'
+                    ? 'bg-orange-50 text-orange-600 font-bold border-l-4 border-orange-600'
+                    : 'text-neutral-700 hover:bg-neutral-50 hover:text-orange-600'
+                }`}
+              >
+                <span>Careers</span>
+                <ChevronRight className="w-4 h-4 text-neutral-400" />
+              </button>
+
+              {/* Contact */}
               <button
                 onClick={() => handleNavClick('contact')}
                 className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-bold transition ${
@@ -533,21 +545,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <ChevronRight className="w-4 h-4 text-neutral-400" />
               </button>
             </div>
-
-            {onRequestQuote && (
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onRequestQuote();
-                  }}
-                  className="w-full min-h-[46px] py-3 px-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold text-sm rounded-lg shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition cursor-pointer"
-                >
-                  <span>Get in Touch</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            )}
 
             <div className="pt-3 mt-1 border-t border-neutral-100 space-y-2.5">
               <div className="text-xs text-neutral-600 p-3 bg-neutral-50 rounded-lg space-y-1">

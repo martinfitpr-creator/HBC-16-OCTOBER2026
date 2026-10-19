@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { 
   MapPin, 
   Phone, 
+  MessageCircle,
   Mail, 
   Globe, 
   Send, 
@@ -15,6 +16,9 @@ import { PageId } from '../types';
 import { companyDetails } from '../data/companyData';
 import { SectionHeader } from '../components/SectionHeader';
 import contactHeroBg from '../assets/images/ud-trucks-warehouse.jpg';
+
+const whatsappNumber = `27${companyDetails.mobile.replace(/\D/g, '').replace(/^0/, '')}`;
+const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello HBC Construction, I would like to request a quote.')}`;
 
 interface ContactPageProps {
   onNavigate: (page: PageId) => void;
@@ -148,6 +152,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <Clock className="w-4 h-4 text-orange-600" />
                   <span>Office Hours: Monday – Friday, 07:30 – 17:00 (SAST)</span>
                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href={`tel:${companyDetails.telephone.replace(/\s+/g, '')}`}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-orange-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-700"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call HBC
+                </a>
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1fb85a]"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp HBC
+                </a>
               </div>
 
               {/* Statutory Footnote */}

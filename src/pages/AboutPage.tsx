@@ -28,7 +28,7 @@ import {
 import { SectionHeader } from '../components/SectionHeader';
 import { SomeOfOurClients } from '../components/SomeOfOurClients';
 import aboutHeroBg from '../assets/images/about-hero-bg.jpg';
-import aboutOverviewImage from '../assets/images/services-intro-bridge.jpg';
+import constructionSiteWorkersImage from '../assets/images/construction-site-workers.jpg';
 import missionPillarsBg from '../assets/images/mission-pillars-industrial.jpg';
 import missionCardBg from '../assets/images/mission-card-crane-sunset.jpg';
 
@@ -87,26 +87,39 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
       <section className="py-16 sm:py-20 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="mx-auto max-w-5xl space-y-8 text-center"
+            className="mx-auto max-w-7xl space-y-8 text-center"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.65, ease: 'easeOut' }}
           >
-            <SectionHeader
-              eyebrow="Company Overview"
-              title="A Trusted Infrastructure Contractor"
-              description="HBC Construction (Pty) Ltd operates as a high-capacity multidisciplinary contractor. We specialize in taking complex civil engineering, institutional facilities, arterial roads, and municipal infrastructure projects from technical design and earthworks through to commissioned handover."
-              align="center"
-            />
-
-            <div className="space-y-4 text-center text-sm leading-relaxed text-neutral-700 sm:text-base">
-              <p>
-                With CIDB Grade 9GB (General Building) and Grade 9CE (Civil Engineering) accreditations, HBC is equipped to undertake major building and civil engineering projects. Complementary Grade 7 ratings in Electrical (EB/EP) and Mechanical Engineering (ME) allow us to execute comprehensive, self-performed infrastructure solutions without fragmentation.
-              </p>
-              <p>
-                Headquartered in Midrand, Gauteng, our footprint spans national provincial corridors, urban revitalisation zones, and developing municipal nodes. We combine heavy equipment capital, experienced site agents, strict safety protocols, and deep commitment to local socio-economic transformation.
-              </p>
+            <div className="grid items-center gap-8 text-left lg:grid-cols-2 lg:gap-12">
+              <div className="space-y-6">
+                <SectionHeader
+                  eyebrow="Company Overview"
+                  title="A Trusted Infrastructure Contractor"
+                  description="HBC Construction (Pty) Ltd operates as a high-capacity multidisciplinary contractor. We specialize in taking complex civil engineering, institutional facilities, arterial roads, and municipal infrastructure projects from technical design and earthworks through to commissioned handover."
+                  align="left"
+                />
+                <div className="space-y-4 text-sm leading-relaxed text-neutral-700 sm:text-base">
+                  <p>
+                    With CIDB Grade 9GB (General Building) and Grade 9CE (Civil Engineering) accreditations, HBC is equipped to undertake major building and civil engineering projects. Complementary Grade 7 ratings in Electrical (EB/EP) and Mechanical Engineering (ME) allow us to execute comprehensive, self-performed infrastructure solutions without fragmentation.
+                  </p>
+                  <p>
+                    Headquartered in Midrand, Gauteng, our footprint spans national provincial corridors, urban revitalisation zones, and developing municipal nodes. We combine heavy equipment capital, experienced site agents, strict safety protocols, and deep commitment to local socio-economic transformation.
+                  </p>
+                </div>
+              </div>
+              <figure className="relative mx-auto w-full max-w-xl overflow-hidden rounded-2xl bg-neutral-100 lg:max-w-none">
+                <img
+                  src={constructionSiteWorkersImage}
+                  alt="Black-and-white photograph of construction workers building a concrete structure"
+                  width={1152}
+                  height={768}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </figure>
             </div>
 
             {/* Highlights List */}
@@ -114,7 +127,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onRequestQuote
               {[
                 '100% Black-Owned South African Enterprise',
                 'CIDB Grades: 9GB, 9CE, 7EB, 7ME, 7EP',
-                'Over 30 Years of Construction Experience',
+                'Established in 2008',
                 'Strict Alignment with ISO 9001 Quality Principles',
                 'Dedicated Youth & Local SMME Empowerment',
                 'In-House Plant & Equipment Fleet'

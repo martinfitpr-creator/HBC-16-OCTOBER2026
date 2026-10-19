@@ -488,44 +488,44 @@ export const GeographicFootprint: React.FC<GeographicFootprintProps> = ({
           <div className="lg:col-span-5 space-y-6">
 
             {/* Core Capability Pillars in Territory */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
               
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
-                  <Building2 className="w-4 h-4 text-[#0A3670]" />
+              <div className="min-w-0 rounded-xl border border-neutral-200 bg-neutral-50 p-3 sm:p-4 space-y-2">
+                <div className="flex min-w-0 items-start gap-2 text-xs font-bold leading-snug text-neutral-900">
+                  <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0A3670]" />
                   <span>National CIDB Grades 9GB / 9CE</span>
                 </div>
-                <p className="text-xs text-neutral-600">
+                <p className="text-xs leading-relaxed text-neutral-600">
                   Authorized to tender and lead public infrastructure works up to R200M+ across all provinces.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
-                  <Truck className="w-4 h-4 text-orange-600" />
+              <div className="min-w-0 rounded-xl border border-neutral-200 bg-neutral-50 p-3 sm:p-4 space-y-2">
+                <div className="flex min-w-0 items-start gap-2 text-xs font-bold leading-snug text-neutral-900">
+                  <Truck className="mt-0.5 h-4 w-4 shrink-0 text-orange-600" />
                   <span>In-House Fleet Mobility</span>
                 </div>
-                <p className="text-xs text-neutral-600">
+                <p className="text-xs leading-relaxed text-neutral-600">
                   Heavy plant depot in Midrand with rapid cross-provincial and SADC deployment capability.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <div className="min-w-0 rounded-xl border border-neutral-200 bg-neutral-50 p-3 sm:p-4 space-y-2">
+                <div className="flex min-w-0 items-start gap-2 text-xs font-bold leading-snug text-neutral-900">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                   <span>100% Black Owned</span>
                 </div>
-                <p className="text-xs text-neutral-600">
+                <p className="text-xs leading-relaxed text-neutral-600">
                   Deep socio-economic commitment with mandatory local youth and SMME site participation.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
-                  <Layers className="w-4 h-4 text-blue-600" />
+              <div className="min-w-0 rounded-xl border border-neutral-200 bg-neutral-50 p-3 sm:p-4 space-y-2">
+                <div className="flex min-w-0 items-start gap-2 text-xs font-bold leading-snug text-neutral-900">
+                  <Layers className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>Turnkey Multidisciplinary</span>
                 </div>
-                <p className="text-xs text-neutral-600">
+                <p className="text-xs leading-relaxed text-neutral-600">
                   Seamless execution combining civil engineering, roads, bridges, and electrical/mechanical services.
                 </p>
               </div>
@@ -533,7 +533,7 @@ export const GeographicFootprint: React.FC<GeographicFootprintProps> = ({
             </div>
 
             {/* Head Office Address Callout */}
-            <div className="p-4 rounded-xl bg-neutral-100/70 border border-neutral-200 flex items-center justify-between text-xs">
+            <div className="flex flex-col items-start gap-3 rounded-xl border border-neutral-200 bg-neutral-100/70 p-4 text-xs sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <span className="font-bold text-neutral-900">Head Office Coordinates:</span>{' '}
                 <span className="text-neutral-600">4 Celliers Road, Glen Austen, Midrand</span>

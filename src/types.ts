@@ -3,6 +3,7 @@ export type PageId =
   | 'about' 
   | 'services' 
   | 'projects' 
+  | 'careers'
   | 'capabilities' 
   | 'quality-safety' 
   | 'social-responsibility' 

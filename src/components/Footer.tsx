@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import { PageId } from '../types';
 import { HbcLogo } from './HbcLogo';
-import hbcFooterLogo from '../assets/images/hbc-logo-footer.jpg';
 import { companyDetails } from '../data/companyData';
 
 interface FooterProps {
@@ -31,11 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestQuote }) =>
               onClick={() => handleNav('home')} 
               className="text-left focus:outline-none block cursor-pointer group"
             >
-              <img
-                src={hbcFooterLogo}
-                alt="HBC Construction Logo"
-                className="h-20 sm:h-24 w-auto object-contain rounded-xl shadow-lg border border-white/10"
-              />
+              <HbcLogo className="h-20 sm:h-24" />
             </button>
 
             <p className="text-sm text-neutral-200 leading-relaxed">
@@ -131,7 +126,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestQuote }) =>
 
         {/* Bottom Legal Copyright Bar */}
         <div className="pt-10 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-300">
-          <div>© 2026 HBC Construction (Pty) Ltd. All rights reserved.</div>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
+            <span>© 2026 HBC Construction (Pty) Ltd. All rights reserved.</span>
+            <button
+              onClick={() => handleNav('careers')}
+              className="min-h-11 text-neutral-200 transition hover:text-white"
+            >
+              Careers
+            </button>
+          </div>
           <button
             onClick={onRequestQuote}
             className="min-h-[44px] px-5 py-3 bg-[#EB5A24] hover:bg-[#D84E1A] text-white font-bold text-xs tracking-wide rounded-lg shadow-md transition transform active:scale-95 cursor-pointer"

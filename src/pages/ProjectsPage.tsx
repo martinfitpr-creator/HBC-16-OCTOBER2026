@@ -1,9 +1,19 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Layers } from 'lucide-react';
-import { PageId, ProjectItem } from '../types';
+import { PageId, ProjectCategory, ProjectItem } from '../types';
 import { projectsData } from '../data/projectsData';
 import { ProjectCard } from '../components/ProjectCard';
 import projectsHeroBg from '../assets/images/projects-hero-bg.jpg';
+
+const projectFilters: { id: ProjectCategory; label: string }[] = [
+  { id: 'ALL', label: 'All projects' },
+  { id: 'CIVIL', label: 'Civil' },
+  { id: 'ROADS', label: 'Roads' },
+  { id: 'BRIDGES', label: 'Bridges' },
+  { id: 'BUILDING', label: 'Buildings' },
+  { id: 'INFRASTRUCTURE', label: 'Infrastructure' },
+  { id: 'GOVERNMENT', label: 'Government' }
+];
 
 interface ProjectsPageProps {
   onNavigate: (page: PageId) => void;
@@ -17,15 +27,19 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
   onRequestQuote
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('ALL');
 
   const filteredProjects = useMemo(() => {
-    if (!searchQuery.trim()) return projectsData;
-    return projectsData.filter((project) =>
-      project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (project.subtitle && project.subtitle.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-  }, [searchQuery]);
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+    return projectsData.filter((project) => {
+      const matchesCategory = activeCategory === 'ALL' || project.category === activeCategory;
+      const matchesSearch = !normalizedQuery ||
+        project.name.toLowerCase().includes(normalizedQuery) ||
+        project.location.toLowerCase().includes(normalizedQuery) ||
+        (project.subtitle && project.subtitle.toLowerCase().includes(normalizedQuery));
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
 
   return (
     <div className="flex flex-col w-full">
@@ -57,7 +71,24 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       {/* Search Bar */}
       <section className="py-4 sm:py-5 bg-white border-b border-neutral-200 sticky top-14 sm:top-16 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-end">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="-mx-1 flex gap-2 overflow-x-auto pb-1" aria-label="Filter projects by category">
+              {projectFilters.map((filter) => (
+                <button
+                  key={filter.id}
+                  type="button"
+                  onClick={() => setActiveCategory(filter.id)}
+                  aria-pressed={activeCategory === filter.id}
+                  className={`shrink-0 rounded-full border px-4 py-2 text-xs font-bold transition ${
+                    activeCategory === filter.id
+                      ? 'border-neutral-900 bg-neutral-900 text-white'
+                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-orange-400 hover:text-orange-700'
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
             <div className="relative w-full sm:w-auto sm:min-w-[360px]">
               <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
@@ -84,7 +115,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       <section className="py-10 sm:py-16 bg-neutral-50 min-h-[500px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex items-center justify-between text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-            <div>Showing {filteredProjects.length} Projects in Portfolio</div>
+            <div>Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'} in Portfolio</div>
           </div>
 
           {filteredProjects.length === 0 ? (
@@ -92,17 +123,20 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
               <Layers className="w-12 h-12 text-neutral-300 mx-auto" />
               <h3 className="text-lg font-bold text-neutral-900">No matching projects found</h3>
               <p className="text-xs sm:text-sm text-neutral-500 max-w-sm mx-auto">
-                No project matches "{searchQuery}". Try a different search term.
+                Try another search term or choose a different category.
               </p>
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  setSearchQuery('');
+                  setActiveCategory('ALL');
+                }}
                 className="mt-2 px-4 py-2 bg-neutral-900 text-white text-xs font-semibold rounded-lg"
               >
                 Clear Search
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {filteredProjects.map((project) => (
                 <ProjectCard
                   key={project.id}

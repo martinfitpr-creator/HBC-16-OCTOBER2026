@@ -3,6 +3,7 @@ import React from 'react';
 interface SectionHeaderProps {
   eyebrow?: string;
   title: string;
+  titleClassName?: string;
   description?: string;
   descriptionClassName?: string;
   align?: 'left' | 'center';
@@ -13,6 +14,7 @@ interface SectionHeaderProps {
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   eyebrow,
   title,
+  titleClassName,
   description,
   descriptionClassName,
   align = 'left',
@@ -36,7 +38,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         </div>
       )}
 
-      <h2 className={`text-[clamp(2.375rem,3.2vw,2.875rem)] font-bold tracking-tight leading-tight ${
+      <h2 className={`${titleClassName ?? 'text-[clamp(2.375rem,3.2vw,2.875rem)] leading-tight'} font-bold tracking-tight ${
         dark ? 'text-white' : 'text-neutral-900'
       }`}>
         {title}

@@ -71,6 +71,18 @@ export const staticSearchItems: SearchResultItem[] = [
     keywords: ['projects', 'portfolio', 'bridges', 'roads', 'saps', 'fire stations', 'universities', 'civil projects', 'tenders']
   },
   {
+    id: 'page-careers',
+    title: 'Careers at HBC Construction',
+    subtitle: 'Current job opportunities',
+    description: 'Check current HBC Construction vacancies and contact the team with a career-related enquiry.',
+    category: 'pages',
+    categoryLabel: 'Page',
+    badge: 'Careers',
+    pageId: 'careers',
+    actionType: 'navigate',
+    keywords: ['careers', 'jobs', 'vacancies', 'employment', 'work with HBC', 'career enquiry']
+  },
+  {
     id: 'page-capabilities',
     title: 'Capabilities & In-House Plant Fleet',
     subtitle: 'CIDB Ratings & Heavy Machinery Fleet',
