@@ -99,12 +99,12 @@ export const HomePage: React.FC<HomePageProps> = ({
   const currentHeroMessage = heroMessages[activeHeroMessage];
 
   return (
-    <div className="flex w-full flex-col min-[1000px]:-mt-20">
+    <div className="flex w-full flex-col -mt-20">
       {/* ─────────────────────────────────────────────────────────────
           1. HERO SECTION
           Large-scale construction, roads, bridges, heavy equipment
       ───────────────────────────────────────────────────────────── */}
-      <section className="home-hero relative isolate flex min-h-[max(620px,calc(100svh_-_80px))] flex-col overflow-hidden bg-[#0A0F14] text-white min-[1000px]:min-h-[100svh]">
+      <section className="home-hero relative isolate flex min-h-[100dvh] flex-col overflow-hidden bg-[#0A0F14] text-white min-[1000px]:min-h-[100svh]">
         {/* Full-bleed construction photography with a layered, responsive contrast overlay. */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img

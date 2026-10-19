@@ -134,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         mobileMenuOpen
         ? 'bg-white border-b border-neutral-200'
         : isHomeHero
-        ? 'bg-white border-b border-neutral-200 min-[1000px]:border-b-0 min-[1000px]:bg-transparent'
+        ? 'bg-transparent border-b-0'
         : isScrolled
         ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/90'
         : 'bg-white border-b border-neutral-200'
@@ -146,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 rounded-md cursor-pointer"
             aria-label="HBC Construction Home"
           >
-            <HbcLogo variant="dark" className="h-[58px] transition-all duration-300 sm:h-[70px]" />
+            <HbcLogo variant="dark" className="h-[68px] transition-all duration-300 sm:h-[76px]" />
           </button>
 
           {/* Desktop Navigation Links & Search Magnifier */}
@@ -333,7 +333,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex min-[1000px]:hidden items-center gap-1 sm:gap-1.5">
             <button
               onClick={() => onOpenSearch?.()}
-              className="flex h-11 min-h-11 w-11 min-w-11 items-center justify-center rounded-lg border border-neutral-200 bg-white text-neutral-700 transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600 active:scale-95"
+              className={`${isHomeHero ? 'hidden' : 'flex'} h-11 min-h-11 w-11 min-w-11 items-center justify-center rounded-lg border transition focus:outline-none focus:ring-2 focus:ring-orange-600 active:scale-95 ${
+                isHomeHero
+                  ? 'border-white/30 bg-white/10 text-white hover:border-orange-400/60 hover:bg-white/20'
+                  : 'border-neutral-200 bg-white text-neutral-700 hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600'
+              }`}
               aria-label="Search website"
               title="Search website"
             >
@@ -342,7 +346,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-neutral-800 hover:text-orange-600 hover:bg-neutral-100 rounded-lg transition active:scale-95 cursor-pointer"
+              className={`w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition active:scale-95 cursor-pointer ${
+                isHomeHero
+                  ? 'text-white hover:text-orange-400 hover:bg-white/10'
+                  : 'text-neutral-800 hover:text-orange-600 hover:bg-neutral-100'
+              }`}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
