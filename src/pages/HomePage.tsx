@@ -130,6 +130,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               >
                 HBC CONSTRUCTION
               </span>
+              <div className="h-px w-8 rounded-full bg-orange-500 sm:hidden" aria-hidden="true" />
             </div>
             <div className="grid h-[240px] sm:h-[320px] lg:h-[200px]">
               {heroMessages.map((message) => (
